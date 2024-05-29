@@ -8,7 +8,7 @@ class tes extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Judul"),
-        // backgroundColor: Color(0xff126b5a),
+        backgroundColor: Color(0xff126b5a),
       ),
     );
   }
