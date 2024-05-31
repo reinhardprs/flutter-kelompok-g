@@ -9,3 +9,5 @@ Kelompok G
 221111309 - Wahyu Nurahmadinuh
 
 221112361 - Jwike Adelia
+
+*Projek ini masih dalam tahap pengembangan*
