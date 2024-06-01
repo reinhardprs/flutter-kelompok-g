@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:money_manage/constants.dart';
 import 'package:money_manage/login/login.dart';
+import 'package:money_manage/settings/myaccount.dart';
 import 'package:money_manage/settings/provid.dart';
 import 'package:money_manage/home.dart';
 import 'package:sizer/sizer.dart';
@@ -15,7 +16,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiProvider(

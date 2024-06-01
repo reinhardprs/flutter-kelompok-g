@@ -208,7 +208,7 @@ class _RegisterState extends State<Register> {
                     },
                     child: Text(
                       "Already have an account? Sign In here",
-                      style: Theme.of(context).textTheme.bodyText1,
+                      // style: Theme.of(context).textTheme.bodyText1,
                     ),
                   )
                 ],

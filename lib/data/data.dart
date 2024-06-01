@@ -92,6 +92,7 @@ List<UserModel> userRegistrations = [
   ),
 ];
 
+
 class UserProvider with ChangeNotifier {
   UserModel? _currentUser;
 
@@ -100,5 +101,38 @@ class UserProvider with ChangeNotifier {
   void setCurrentUser(UserModel user) {
     _currentUser = user;
     notifyListeners();
+  }
+
+  void updateUserField(String field, String newValue) {
+    if (_currentUser != null) {
+      switch (field) {
+        case 'username':
+          _currentUser = UserModel(
+            username: newValue,
+            email: _currentUser!.email,
+            password: _currentUser!.password,
+            phone: _currentUser!.phone,
+          );
+          break;
+        case 'email':
+          _currentUser = UserModel(
+            username: _currentUser!.username,
+            email: newValue,
+            password: _currentUser!.password,
+            phone: _currentUser!.phone,
+          );
+          break;
+        case 'phone':
+          _currentUser = UserModel(
+            username: _currentUser!.username,
+            email: _currentUser!.email,
+            password: _currentUser!.password,
+            phone: newValue,
+          );
+          break;
+      // Tambahkan case lain sesuai kebutuhan
+      }
+      notifyListeners();
+    }
   }
 }

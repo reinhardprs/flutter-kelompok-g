@@ -5,6 +5,7 @@ import 'package:money_manage/data/data.dart';
 import 'package:money_manage/login/forgot_pass.dart';
 import 'package:money_manage/login/register.dart';
 import 'package:money_manage/models/user_model.dart';
+import 'package:provider/provider.dart';
 
 import '../home.dart';
 
@@ -44,6 +45,9 @@ class _LoginState extends State<Login> {
         ),
       );
     } else {
+      // Save the logged-in user in the provider
+      Provider.of<UserProvider>(context, listen: false).setCurrentUser(user);
+
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (BuildContext context) => HomePage()),
@@ -124,7 +128,7 @@ class _LoginState extends State<Login> {
                     },
                     child: Text(
                       "Forgot Password",
-                      style: Theme.of(context).textTheme.bodyText1,
+                      // style: Theme.of(context).textTheme.bodyText1,
                     ),
                   ),
                   SizedBox(height: 20),
@@ -191,7 +195,7 @@ class _LoginState extends State<Login> {
                     },
                     child: Text(
                       "Create account",
-                      style: Theme.of(context).textTheme.bodyText1,
+                      // style: Theme.of(context).textTheme.bodyText1,
                     ),
                   )
                 ],
