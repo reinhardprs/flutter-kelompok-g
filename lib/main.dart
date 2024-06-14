@@ -22,7 +22,6 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => NotifProvider()),
-        ChangeNotifierProvider(create: (context) => LanguageProvider()),
         ChangeNotifierProvider(create: (context) => ChatProvider()),
         ChangeNotifierProvider(create: (context) => UserProvider()),
       ],
@@ -46,7 +45,7 @@ class MyApp extends StatelessWidget {
           ),
           // home: HomePage(),
           // home: AddTypeNames(),
-          home: Login(),
+          home: HomePage(),
         );
       }),
     );

@@ -15,51 +15,53 @@ final List<double> weeklySpending = [
 
 _generateExpenses(int index) {
   List<CostModel> costModel = [];
+  DateTime now = DateTime.now();
 
   if (index == 0) {
     costModel = [
-      CostModel(name: 'House Custom 0', cost: 15.0),
-      CostModel(name: 'House Custom 1', cost: 25.0),
-      CostModel(name: 'House Custom 2', cost: 30.0),
+      CostModel(name: 'House Custom 0', cost: 15.0, note: 'Note 1', createdAt: now, lastModifiedAt: now),
+      CostModel(name: 'House Custom 1', cost: 25.0, note: 'Note 2', createdAt: now, lastModifiedAt: now),
+      CostModel(name: 'House Custom 2', cost: 30.0, note: 'Note 3', createdAt: now, lastModifiedAt: now),
     ];
   } else if (index == 1) {
     costModel = [
-      CostModel(name: 'Clothing Custom 0', cost: 18.0),
-      CostModel(name: 'Clothing Custom 1', cost: 22.0),
+      CostModel(name: 'Clothing Custom 0', cost: 18.0, note: 'Note 1', createdAt: now, lastModifiedAt: now),
+      CostModel(name: 'Clothing Custom 1', cost: 22.0, note: 'Note 2', createdAt: now, lastModifiedAt: now),
     ];
   } else if (index == 2) {
     costModel = [
-      CostModel(name: 'Food Custom 0', cost: 8.0),
-      CostModel(name: 'Ketoprak Custom', cost: 12.0),
+      CostModel(name: 'Food Custom 0', cost: 8.0, note: 'Note 1', createdAt: now, lastModifiedAt: now),
+      CostModel(name: 'Ketoprak Custom', cost: 12.0, note: 'Note 2', createdAt: now, lastModifiedAt: now),
     ];
   } else if (index == 3) {
     costModel = [
-      CostModel(name: 'Utilities Custom 0', cost: 12.0),
-      CostModel(name: 'Utilities Custom 1', cost: 15.0),
+      CostModel(name: 'Utilities Custom 0', cost: 12.0, note: 'Note 1', createdAt: now, lastModifiedAt: now),
+      CostModel(name: 'Utilities Custom 1', cost: 15.0, note: 'Note 2', createdAt: now, lastModifiedAt: now),
     ];
   } else if (index == 4) {
     costModel = [
-      CostModel(name: 'Entertainment Custom 0', cost: 10.0),
-      CostModel(name: 'Entertainment Custom 1', cost: 18.0),
+      CostModel(name: 'Entertainment Custom 0', cost: 10.0, note: 'Note 1', createdAt: now, lastModifiedAt: now),
+      CostModel(name: 'Entertainment Custom 1', cost: 18.0, note: 'Note 2', createdAt: now, lastModifiedAt: now),
     ];
   } else if (index == 5) {
     costModel = [
-      CostModel(name: 'Transport Custom 0', cost: 10.0),
-      CostModel(name: 'Transport Custom 1', cost: 15.0),
+      CostModel(name: 'Transport Custom 0', cost: 10.0, note: 'Note 1', createdAt: now, lastModifiedAt: now),
+      CostModel(name: 'Transport Custom 1', cost: 15.0, note: 'Note 2', createdAt: now, lastModifiedAt: now),
     ];
   } else {
     costModel = [
-      CostModel(name: 'Item 0', cost: 10.0),
-      CostModel(name: 'Item 1', cost: 20.0),
-      CostModel(name: 'Item 2', cost: 10.0),
-      CostModel(name: 'Item 3', cost: 5.0),
-      CostModel(name: 'Item 4', cost: 13.0),
-      CostModel(name: 'Item 5', cost: 10.0),
+      CostModel(name: 'Item 0', cost: 10.0, note: 'Note 1', createdAt: now, lastModifiedAt: now),
+      CostModel(name: 'Item 1', cost: 20.0, note: 'Note 2', createdAt: now, lastModifiedAt: now),
+      CostModel(name: 'Item 2', cost: 10.0, note: 'Note 3', createdAt: now, lastModifiedAt: now),
+      CostModel(name: 'Item 3', cost: 5.0, note: 'Note 4', createdAt: now, lastModifiedAt: now),
+      CostModel(name: 'Item 4', cost: 13.0, note: 'Note 5', createdAt: now, lastModifiedAt: now),
+      CostModel(name: 'Item 5', cost: 10.0, note: 'Note 6', createdAt: now, lastModifiedAt: now),
     ];
   }
 
   return costModel;
 }
+
 
 
 List<TypeModel> typeNames = [

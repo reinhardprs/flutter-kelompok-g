@@ -18,6 +18,7 @@ class AddExpenseScreen extends StatefulWidget {
 class _AddExpenseScreenState extends State<AddExpenseScreen> {
   TextEditingController nameController = TextEditingController();
   TextEditingController costController = TextEditingController();
+  TextEditingController noteController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +73,14 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
               ),
             ),
             SizedBox(height: 20),
+            TextField(
+              controller: noteController,
+              decoration: InputDecoration(
+                labelText: 'Expense Note',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 _saveCostData();
@@ -87,8 +96,9 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
   void _saveCostData() {
     String name = nameController.text.trim();
     double cost = double.tryParse(costController.text.trim()) ?? 0.0;
+    String note = noteController.text.trim();
 
-    if (name.isNotEmpty && cost > 0) {
+    if (name.isNotEmpty && cost > 0 && note.isNotEmpty) {
       TypeModel selectedType = typeNames.firstWhere((type) => type.name == widget.typeName);
 
       double totalExpenses = 0.0;
@@ -98,10 +108,11 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
       double remainingBalance = selectedType.maxAmount! - totalExpenses;
 
       if (cost <= remainingBalance) {
-        selectedType.expenses!.add(CostModel(name: name, cost: cost));
+        selectedType.expenses!.add(CostModel(name: name, cost: cost, note: note));
 
         nameController.clear();
         costController.clear();
+        noteController.clear();
 
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -125,11 +136,10 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Name and Cost Amount must be filled in and valid'),
+          content: Text('Name, Cost Amount, and Note must be filled in and valid'),
           backgroundColor: Colors.red,
         ),
       );
     }
   }
-
 }

@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:money_manage/constants.dart';
 import 'package:money_manage/models/cost_model.dart';
 import 'package:money_manage/models/type_model.dart';
+import 'package:money_manage/transaction_detail_screen.dart';
 import 'package:money_manage/widgets/circle_painter.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -135,7 +136,6 @@ class _DetailScreenState extends State<DetailScreen> {
   }
 
   Widget _buildExpenseList() {
-    // Check if expenses are null or empty
     if (widget.typeModel.expenses == null || widget.typeModel.expenses!.isEmpty) {
       return Center(
         child: Padding(
@@ -158,40 +158,52 @@ class _DetailScreenState extends State<DetailScreen> {
         onDismissed: (direction) {
           _removeExpense(expense);
         },
-        child: Container(
-          width: 1000,
-          height: 100,
-          margin: kMargin,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: kPrimaryColor,
-            borderRadius: kRadius,
-          ),
-          child: Padding(
-            padding: kPadding,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  expense.name!.length > 22 ? '${expense.name!.substring(0, 22)}...' : expense.name!,
-                  style: GoogleFonts.atma(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                    color: kTextColor,
-                    letterSpacing: 1.0,
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => TransactionDetailScreen(transaction: expense),
+              ),
+            ).then((_) {
+              setState(() {});
+            });
+          },
+          child: Container(
+            width: 1000,
+            height: 100,
+            margin: kMargin,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: kPrimaryColor,
+              borderRadius: kRadius,
+            ),
+            child: Padding(
+              padding: kPadding,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    expense.name!.length > 22 ? '${expense.name!.substring(0, 22)}...' : expense.name!,
+                    style: GoogleFonts.atma(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      color: kTextColor,
+                      letterSpacing: 1.0,
+                    ),
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  overflow: TextOverflow.ellipsis,
-                ),
-                Text(
-                  '-\$${expense.cost!.toStringAsFixed(2)}',
-                  style: GoogleFonts.atma(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                    color: kSecondaryColor,
-                    letterSpacing: 2.0,
+                  Text(
+                    '-\$${expense.cost!.toStringAsFixed(2)}',
+                    style: GoogleFonts.atma(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      color: kSecondaryColor,
+                      letterSpacing: 2.0,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -200,6 +212,7 @@ class _DetailScreenState extends State<DetailScreen> {
 
     return Column(children: expenseList);
   }
+
 
 
   void _removeExpense(CostModel expense) {
