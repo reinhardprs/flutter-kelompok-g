@@ -13,8 +13,8 @@ import 'manage_data/edit_maxAmount_detil.dart';
 // import 'manage_data/edit_max_amount.dart';
 
 class DetailScreen extends StatefulWidget {
-  final TypeModel? typeModel;
-  const DetailScreen({Key? key, this.typeModel}) : super(key: key);
+  final TypeModel typeModel;
+  const DetailScreen({Key? key, required this.typeModel}) : super(key: key);
 
   @override
   State<DetailScreen> createState() => _DetailScreenState();
@@ -135,58 +135,72 @@ class _DetailScreenState extends State<DetailScreen> {
   }
 
   Widget _buildExpenseList() {
-    List<Widget> expenseList = [];
-    widget.typeModel!.expenses!.forEach((CostModel expense) {
-      expenseList.add(
-        Dismissible(
-          key: UniqueKey(),
-          onDismissed: (direction) {
-            _removeExpense(expense); // Panggil fungsi untuk menghapus expense
-          },
-          child: Container(
-            width: 1000,
-            height: 100,
-            margin: kMargin,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: kPrimaryColor,
-              borderRadius: kRadius,
-            ),
-            child: Padding(
-              padding: kPadding,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    expense.name!.length > 22 ? '${expense.name!.substring(0, 22)}...' : expense.name!,
-                    style: GoogleFonts.atma(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                      color: kTextColor,
-                      letterSpacing: 1.0,
-                    ),
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  Text(
-                    '-\$${expense.cost!.toStringAsFixed(2)}',
-                    style: GoogleFonts.atma(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                      color: kSecondaryColor,
-                      letterSpacing: 2.0,
-                    ),
-                  ),
-                ],
-              ),
+    // Check if expenses are null or empty
+    if (widget.typeModel.expenses == null || widget.typeModel.expenses!.isEmpty) {
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Text(
+            "No Expense Yet",
+            style: GoogleFonts.atma(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: kTextColor,
             ),
           ),
         ),
       );
-    });
-    return Column(
-      children: expenseList,
-    );
+    }
+
+    List<Widget> expenseList = widget.typeModel.expenses!.map((CostModel expense) {
+      return Dismissible(
+        key: UniqueKey(),
+        onDismissed: (direction) {
+          _removeExpense(expense);
+        },
+        child: Container(
+          width: 1000,
+          height: 100,
+          margin: kMargin,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: kPrimaryColor,
+            borderRadius: kRadius,
+          ),
+          child: Padding(
+            padding: kPadding,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  expense.name!.length > 22 ? '${expense.name!.substring(0, 22)}...' : expense.name!,
+                  style: GoogleFonts.atma(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: kTextColor,
+                    letterSpacing: 1.0,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                ),
+                Text(
+                  '-\$${expense.cost!.toStringAsFixed(2)}',
+                  style: GoogleFonts.atma(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: kSecondaryColor,
+                    letterSpacing: 2.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }).toList();
+
+    return Column(children: expenseList);
   }
+
 
   void _removeExpense(CostModel expense) {
     setState(() {

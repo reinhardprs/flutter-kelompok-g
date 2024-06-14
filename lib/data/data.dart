@@ -30,7 +30,7 @@ _generateExpenses(int index) {
   } else if (index == 2) {
     costModel = [
       CostModel(name: 'Food Custom 0', cost: 8.0),
-      CostModel(name: 'Food Custom 1', cost: 12.0),
+      CostModel(name: 'Ketoprak Custom', cost: 12.0),
     ];
   } else if (index == 3) {
     costModel = [
@@ -91,7 +91,6 @@ List<UserModel> userRegistrations = [
     phone: '1122334455',
   ),
 ];
-
 
 class UserProvider with ChangeNotifier {
   UserModel? _currentUser;

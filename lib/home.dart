@@ -1,16 +1,15 @@
-import 'package:money_manage/constants.dart';
-import 'package:money_manage/data/data.dart';
-import 'package:money_manage/models/cost_model.dart';
-import 'package:money_manage/models/type_model.dart';
-import 'package:money_manage/detail_screen.dart';
-import 'package:money_manage/settings/chat.dart';
-import 'package:money_manage/widgets/chart.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:money_manage/constants.dart';
+import 'package:money_manage/data/data.dart';
+import 'package:money_manage/detail_screen.dart';
+import 'package:money_manage/models/cost_model.dart';
+import 'package:money_manage/models/type_model.dart';
+import 'package:money_manage/settings/chat.dart';
+import 'package:money_manage/widgets/chart.dart';
 import 'package:provider/provider.dart';
-
+import 'add typeNames.dart';
 import 'drawer.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -20,6 +19,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Offset _tapPosition = Offset.zero;
+
   @override
   Widget build(BuildContext context) {
     final userProvider = Provider.of<UserProvider>(context);
@@ -72,15 +73,47 @@ class _HomePageState extends State<HomePage> {
           SliverList(
             delegate: SliverChildBuilderDelegate((context, int index) {
               if (index == 0) {
-                return Container(
-                  margin: EdgeInsets.all(2),
-                  decoration: BoxDecoration(
-                    color: kPrimaryColor,
-                    borderRadius: BorderRadius.circular(3),
-                  ),
-                  child: CustomChart(
-                    expenses: weeklySpending,
-                  ),
+                return Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.all(2),
+                      decoration: BoxDecoration(
+                        color: kPrimaryColor,
+                        borderRadius: BorderRadius.circular(3),
+                      ),
+                      child: CustomChart(
+                        expenses: weeklySpending,
+                      ),
+                    ),
+                    SizedBox(height: 7,),
+                    Center(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Container(
+                          color: kPrimaryColor,
+                          width: 430,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              IconButton(
+                                icon: Icon(Icons.add, color: kTextColor, size: 35),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => AddTypeNames()),
+                                  );
+                                },
+                              ),
+                              Text(
+                                'Add Other Expense Category',
+                                style: TextStyle(color: kTextColor, fontSize: 15),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 );
               } else {
                 final TypeModel typeModel = typeNames[index - 1];
@@ -88,26 +121,70 @@ class _HomePageState extends State<HomePage> {
                 typeModel.expenses!.forEach((CostModel expense) {
                   tAmountSpent += expense.cost!;
                 });
-                return _buildCategories(typeModel, tAmountSpent);
+                return _buildCategories(typeModel, tAmountSpent, index - 1);
               }
             }, childCount: 1 + typeNames.length),
           ),
+
         ],
       ),
     );
   }
 
-  _buildCategories(TypeModel category, double tAmountSpent) {
+  _buildCategories(TypeModel category, double tAmountSpent, int index) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (context) => DetailScreen(
-                  typeModel: category,
-                )));
+                      typeModel: category,
+                    )));
       },
-      child: Container(
+      onLongPressStart: (details) {
+        _tapPosition = details.globalPosition;
+      },
+      onLongPress: () {
+        showMenu(
+          context: context,
+          position: RelativeRect.fromLTRB(
+            _tapPosition.dx,
+            _tapPosition.dy,
+            MediaQuery.of(context).size.width - _tapPosition.dx,
+            MediaQuery.of(context).size.height - _tapPosition.dy,
+          ),
+          items: [
+            PopupMenuItem(
+              value: 'view',
+              child: Text('View'),
+            ),
+            PopupMenuItem(
+              value: 'delete',
+              child: Text('Delete'),
+            ),
+          ],
+        ).then((value) {
+          if (value == 'view') {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DetailScreen(typeModel: category),
+              ),
+            );
+          } else if (value == 'delete') {
+            setState(() {
+              typeNames.removeAt(index);
+            });
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text('${category.name} has been deleted'),
+              ),
+            );
+          }
+        });
+      },
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 300),
         width: 100,
         height: 130,
         margin: kMargin,

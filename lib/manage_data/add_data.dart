@@ -95,9 +95,8 @@ class _AddDataState extends State<AddData> {
                         Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(builder: (context) => HomePage()),
-                              (route) => false,
+                          (route) => false,
                         );
-
                       },
                       child: Text('Save'),
                       style: ElevatedButton.styleFrom(
@@ -109,12 +108,12 @@ class _AddDataState extends State<AddData> {
                     // Menampilkan sisa saldo
                     _selectedItem != null
                         ? Text(
-                      'Sisa Saldo: \$${_calculateRemainingBalance()}',
-                      style: TextStyle(
-                        color: kPrimaryColor,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )
+                            'Sisa Saldo: \$${_calculateRemainingBalance()}',
+                            style: TextStyle(
+                              color: kPrimaryColor,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )
                         : SizedBox(),
                   ],
                 ),
@@ -135,7 +134,8 @@ class _AddDataState extends State<AddData> {
           child: Text(
             type.name!,
             style: TextStyle(
-              color: _selectedItem == type.name ? Colors.grey[800] : kPrimaryColor,
+              color:
+                  _selectedItem == type.name ? Colors.grey[800] : kPrimaryColor,
             ),
           ),
         ),
@@ -149,35 +149,28 @@ class _AddDataState extends State<AddData> {
     double cost = double.tryParse(_costController.text.trim()) ?? 0.0;
 
     if (name.isNotEmpty && cost > 0) {
-      // Menemukan objek TypeModel berdasarkan nama yang dipilih
-      TypeModel selectedType = typeNames.firstWhere((type) => type.name == _selectedItem);
+      TypeModel selectedType =
+          typeNames.firstWhere((type) => type.name == _selectedItem);
 
-      // Menghitung total pengeluaran dari TypeModel yang dipilih
       double totalExpenses = 0.0;
       selectedType.expenses!.forEach((expense) {
         totalExpenses += expense.cost!;
       });
 
-      // Menghitung sisa saldo
       double remainingBalance = selectedType.maxAmount! - totalExpenses;
 
-      // Memeriksa apakah saldo mencukupi
       if (cost <= remainingBalance) {
-        // Menambahkan CostModel baru ke dalam expenses dari TypeModel yang dipilih
         selectedType.expenses!.add(CostModel(name: name, cost: cost));
 
-        // Membersihkan field input setelah data disimpan
         _nameController.clear();
         _costController.clear();
 
-        // Memberitahu pengguna bahwa data telah disimpan
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Data saved successfully'),
           ),
         );
       } else {
-        // Menampilkan pesan kesalahan jika saldo tidak mencukupi
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Balance is not enough'),
@@ -186,7 +179,6 @@ class _AddDataState extends State<AddData> {
         );
       }
     } else {
-      // Menampilkan pesan kesalahan jika input tidak valid
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Name and Cost Amount must be filled in and valid'),
@@ -198,19 +190,16 @@ class _AddDataState extends State<AddData> {
 
   String _calculateRemainingBalance() {
     if (_selectedItem != null) {
-      // Temukan objek TypeModel yang dipilih
-      TypeModel selectedType = typeNames.firstWhere((type) => type.name == _selectedItem);
+      TypeModel selectedType =
+          typeNames.firstWhere((type) => type.name == _selectedItem);
 
-      // Hitung total pengeluaran dari TypeModel yang dipilih
       double totalExpenses = 0.0;
       selectedType.expenses!.forEach((expense) {
         totalExpenses += expense.cost!;
       });
 
-      // Hitung sisa saldo
       double remainingBalance = selectedType.maxAmount! - totalExpenses;
 
-      // Kembalikan sisa saldo dalam bentuk string
       return remainingBalance.toStringAsFixed(2);
     } else {
       return '';
