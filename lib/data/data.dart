@@ -3,15 +3,20 @@ import 'package:money_manage/models/type_model.dart';
 import 'package:flutter/material.dart';
 import '../models/user_model.dart';
 
-final List<double> weeklySpending = [
-  50.0,
-  30.0,
-  40.0,
-  20.0,
-  60.0,
-  70.0,
-  80.0,
-];
+List<double> calculateWeeklySpending(List<TypeModel> typeNames) {
+  List<double> weeklySpending = List<double>.filled(7, 0);
+
+  typeNames.forEach((type) {
+    type.expenses?.forEach((expense) {
+      int dayOfWeek = expense.createdAt!.weekday % 7;  // Convert to 0 (Sunday) - 6 (Saturday) format
+      weeklySpending[dayOfWeek] += expense.cost!;
+    });
+  });
+
+  return weeklySpending;
+}
+
+final List<double> weeklySpending = calculateWeeklySpending(typeNames);
 
 _generateExpenses(int index) {
   List<CostModel> costModel = [];
@@ -19,18 +24,18 @@ _generateExpenses(int index) {
 
   if (index == 0) {
     costModel = [
-      CostModel(name: 'House Custom 0', cost: 15.0, note: 'Note 1', createdAt: now, lastModifiedAt: now),
-      CostModel(name: 'House Custom 1', cost: 25.0, note: 'Note 2', createdAt: now, lastModifiedAt: now),
-      CostModel(name: 'House Custom 2', cost: 30.0, note: 'Note 3', createdAt: now, lastModifiedAt: now),
+      CostModel(name: 'House Custom 0', cost: 15.0, note: 'Note 1', createdAt: now.subtract(Duration(days: 6)), lastModifiedAt: now),
+      CostModel(name: 'House Custom 1', cost: 25.0, note: 'Note 2', createdAt: now.subtract(Duration(days: 5)), lastModifiedAt: now),
+      CostModel(name: 'House Custom 2', cost: 30.0, note: 'Note 3', createdAt: now.subtract(Duration(days: 4)), lastModifiedAt: now),
     ];
   } else if (index == 1) {
     costModel = [
-      CostModel(name: 'Clothing Custom 0', cost: 18.0, note: 'Note 1', createdAt: now, lastModifiedAt: now),
-      CostModel(name: 'Clothing Custom 1', cost: 22.0, note: 'Note 2', createdAt: now, lastModifiedAt: now),
+      CostModel(name: 'Clothing Custom 0', cost: 18.0, note: 'Note 1', createdAt: now.subtract(Duration(days: 3)), lastModifiedAt: now),
+      CostModel(name: 'Clothing Custom 1', cost: 22.0, note: 'Note 2', createdAt: now.subtract(Duration(days: 2)), lastModifiedAt: now),
     ];
   } else if (index == 2) {
     costModel = [
-      CostModel(name: 'Food Custom 0', cost: 8.0, note: 'Note 1', createdAt: now, lastModifiedAt: now),
+      CostModel(name: 'Food Custom 0', cost: 8.0, note: 'Note 1', createdAt: now.subtract(Duration(days: 1)), lastModifiedAt: now),
       CostModel(name: 'Ketoprak Custom', cost: 12.0, note: 'Note 2', createdAt: now, lastModifiedAt: now),
     ];
   } else if (index == 3) {

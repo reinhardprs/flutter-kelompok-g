@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:money_manage/constants.dart';
-
 
 class CustomChart extends StatelessWidget {
   const CustomChart({Key? key, required this.expenses}) : super(key: key);
   final List<double> expenses;
+
   @override
   Widget build(BuildContext context) {
     double mostExpensive = 0;
@@ -14,6 +15,15 @@ class CustomChart extends StatelessWidget {
         mostExpensive = price;
       }
     });
+
+    DateTime now = DateTime.now();
+    DateTime startDate = now.subtract(Duration(days: now.weekday));
+    DateTime endDate = startDate.add(Duration(days: 6));
+    String formattedStartDate = DateFormat('MMM dd, yyyy').format(startDate);
+    String formattedEndDate = DateFormat('MMM dd, yyyy').format(endDate);
+
+    List<String> weekDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+
     return Padding(
       padding: EdgeInsets.all(8),
       child: Column(
@@ -38,11 +48,12 @@ class CustomChart extends StatelessWidget {
                 icon: Icon(Icons.arrow_back_outlined),
               ),
               Text(
-                'Nov 10, 2020 - Nov 18, 2021',
+                '$formattedStartDate - $formattedEndDate',
                 style: GoogleFonts.abel(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                    color: kTextColor),
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                  color: kTextColor,
+                ),
               ),
               IconButton(
                 onPressed: () {},
@@ -56,37 +67,13 @@ class CustomChart extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              CustomBar(
-                  day: 'Su',
-                  amountSpent: expenses[0],
-                  expensive: mostExpensive),
-              CustomBar(
-                  day: 'Mo',
-                  amountSpent: expenses[1],
-                  expensive: mostExpensive),
-              CustomBar(
-                  day: 'Tu',
-                  amountSpent: expenses[2],
-                  expensive: mostExpensive),
-              CustomBar(
-                  day: 'We',
-                  amountSpent: expenses[3],
-                  expensive: mostExpensive),
-              CustomBar(
-                  day: 'Th',
-                  amountSpent: expenses[4],
-                  expensive: mostExpensive),
-              CustomBar(
-                  day: 'Fr',
-                  amountSpent: expenses[5],
-                  expensive: mostExpensive),
-              CustomBar(
-                  day: 'Sa',
-                  amountSpent: expenses[6],
-                  expensive: mostExpensive),
-
-            ],
+            children: List.generate(7, (index) {
+              return CustomBar(
+                day: weekDays[index],
+                amountSpent: expenses[index],
+                expensive: mostExpensive,
+              );
+            }),
           ),
           SizedBox(
             height: 15,
@@ -98,16 +85,12 @@ class CustomChart extends StatelessWidget {
 }
 
 class CustomBar extends StatelessWidget {
-  CustomBar(
-      {Key? key,
-      required this.day,
-      required this.amountSpent,
-      required this.expensive})
-      : super(key: key);
+  CustomBar({Key? key, required this.day, required this.amountSpent, required this.expensive}) : super(key: key);
   final String day;
   final double amountSpent;
   final double expensive;
   final double _maxBarHeight = 200;
+
   @override
   Widget build(BuildContext context) {
     final barHeight = amountSpent / expensive * _maxBarHeight;
@@ -116,7 +99,10 @@ class CustomBar extends StatelessWidget {
         Text(
           '\$${amountSpent.toStringAsFixed(2)}',
           style: GoogleFonts.abel(
-              fontSize: 17, fontWeight: FontWeight.w500, color: kTextColor),
+            fontSize: 17,
+            fontWeight: FontWeight.w500,
+            color: kTextColor,
+          ),
         ),
         SizedBox(
           height: 10,
@@ -135,7 +121,10 @@ class CustomBar extends StatelessWidget {
         Text(
           day,
           style: GoogleFonts.abel(
-              fontSize: 15, fontWeight: FontWeight.w600, color: kTextColor),
+            fontSize: 15,
+            fontWeight: FontWeight.w600,
+            color: kTextColor,
+          ),
         ),
       ],
     );
