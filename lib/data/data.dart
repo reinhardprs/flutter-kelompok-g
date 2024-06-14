@@ -3,20 +3,20 @@ import 'package:money_manage/models/type_model.dart';
 import 'package:flutter/material.dart';
 import '../models/user_model.dart';
 
-List<double> calculateWeeklySpending(List<TypeModel> typeNames) {
+List<double> calculateWeeklySpending(List<TypeModel> typeNames, DateTime startDate, DateTime endDate) {
   List<double> weeklySpending = List<double>.filled(7, 0);
 
   typeNames.forEach((type) {
     type.expenses?.forEach((expense) {
-      int dayOfWeek = expense.createdAt!.weekday % 7;  // Convert to 0 (Sunday) - 6 (Saturday) format
-      weeklySpending[dayOfWeek] += expense.cost!;
+      if (expense.createdAt!.isAfter(startDate.subtract(Duration(days: 1))) && expense.createdAt!.isBefore(endDate.add(Duration(days: 1)))) {
+        int dayOfWeek = expense.createdAt!.weekday % 7;  // Convert to 0 (Sunday) - 6 (Saturday) format
+        weeklySpending[dayOfWeek] += expense.cost!;
+      }
     });
   });
 
   return weeklySpending;
 }
-
-final List<double> weeklySpending = calculateWeeklySpending(typeNames);
 
 _generateExpenses(int index) {
   List<CostModel> costModel = [];
@@ -66,8 +66,6 @@ _generateExpenses(int index) {
 
   return costModel;
 }
-
-
 
 List<TypeModel> typeNames = [
   TypeModel(name: 'House', maxAmount: 2000, expenses: _generateExpenses(0)),
@@ -136,7 +134,6 @@ class UserProvider with ChangeNotifier {
             phone: newValue,
           );
           break;
-      // Tambahkan case lain sesuai kebutuhan
       }
       notifyListeners();
     }

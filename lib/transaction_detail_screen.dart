@@ -110,23 +110,14 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
               maxLines: 3,
             ),
             SizedBox(height: 20),
-            GestureDetector(
-              onTap: () => _pickDateTime(context, _createdAt!, (dateTime) {
-                setState(() {
-                  _createdAt = dateTime;
-                });
-              }),
-              child: AbsorbPointer(
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    labelText: 'Created At',
-                    suffixIcon: Icon(Icons.calendar_today),
-                  ),
-                  controller: TextEditingController(
-                    text: '${dateFormat.format(_createdAt!)} at ${timeFormat.format(_createdAt!)}',
-                  ),
-                ),
+            TextFormField(
+              decoration: InputDecoration(
+                labelText: 'Created At',
               ),
+              controller: TextEditingController(
+                text: '${dateFormat.format(_createdAt!)} at ${timeFormat.format(_createdAt!)}',
+              ),
+              readOnly: true,
             ),
             SizedBox(height: 20),
             GestureDetector(

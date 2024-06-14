@@ -2,25 +2,56 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:money_manage/constants.dart';
+import 'package:money_manage/data/data.dart';
 
-class CustomChart extends StatelessWidget {
-  const CustomChart({Key? key, required this.expenses}) : super(key: key);
-  final List<double> expenses;
+import '../models/type_model.dart';
+
+class CustomChart extends StatefulWidget {
+  const CustomChart({Key? key, required this.typeNames}) : super(key: key);
+  final List<TypeModel> typeNames;
+
+  @override
+  _CustomChartState createState() => _CustomChartState();
+}
+
+class _CustomChartState extends State<CustomChart> {
+  late DateTime _startDate;
+  late DateTime _endDate;
+  late List<double> _weeklyExpenses;
+
+  @override
+  void initState() {
+    super.initState();
+    _initializeDates();
+    _updateExpenses();
+  }
+
+  void _initializeDates() {
+    DateTime now = DateTime.now();
+    _startDate = now.subtract(Duration(days: now.weekday));
+    _endDate = _startDate.add(Duration(days: 6));
+  }
+
+  void _updateDates(int days) {
+    setState(() {
+      _startDate = _startDate.add(Duration(days: days));
+      _endDate = _endDate.add(Duration(days: days));
+      _updateExpenses();
+    });
+  }
+
+  void _updateExpenses() {
+    setState(() {
+      _weeklyExpenses = calculateWeeklySpending(widget.typeNames, _startDate, _endDate);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    double mostExpensive = 0;
-    expenses.forEach((double price) {
-      if (price > mostExpensive) {
-        mostExpensive = price;
-      }
-    });
+    double mostExpensive = _weeklyExpenses.reduce((curr, next) => curr > next ? curr : next);
 
-    DateTime now = DateTime.now();
-    DateTime startDate = now.subtract(Duration(days: now.weekday));
-    DateTime endDate = startDate.add(Duration(days: 6));
-    String formattedStartDate = DateFormat('MMM dd, yyyy').format(startDate);
-    String formattedEndDate = DateFormat('MMM dd, yyyy').format(endDate);
+    String formattedStartDate = DateFormat('MMM dd, yyyy').format(_startDate);
+    String formattedEndDate = DateFormat('MMM dd, yyyy').format(_endDate);
 
     List<String> weekDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 
@@ -44,7 +75,9 @@ class CustomChart extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  _updateDates(-7);
+                },
                 icon: Icon(Icons.arrow_back_outlined),
               ),
               Text(
@@ -56,7 +89,9 @@ class CustomChart extends StatelessWidget {
                 ),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  _updateDates(7);
+                },
                 icon: Icon(Icons.arrow_forward_outlined),
               ),
             ],
@@ -70,7 +105,7 @@ class CustomChart extends StatelessWidget {
             children: List.generate(7, (index) {
               return CustomBar(
                 day: weekDays[index],
-                amountSpent: expenses[index],
+                amountSpent: _weeklyExpenses[index],
                 expensive: mostExpensive,
               );
             }),
@@ -93,7 +128,7 @@ class CustomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final barHeight = amountSpent / expensive * _maxBarHeight;
+    final barHeight = expensive > 0 ? (amountSpent / expensive * _maxBarHeight) : 0;
     return Column(
       children: [
         Text(
@@ -108,7 +143,7 @@ class CustomBar extends StatelessWidget {
           height: 10,
         ),
         Container(
-          height: barHeight,
+          height: barHeight.toDouble(),
           width: 15,
           decoration: BoxDecoration(
             color: kSecondaryColor,

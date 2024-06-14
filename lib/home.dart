@@ -82,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(3),
                       ),
                       child: CustomChart(
-                        expenses: weeklySpending,
+                        typeNames: typeNames,
                       ),
                     ),
                     SizedBox(height: 7,),
