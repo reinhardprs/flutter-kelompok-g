@@ -139,3 +139,18 @@ class UserProvider with ChangeNotifier {
     }
   }
 }
+
+class VerificationCodeProvider with ChangeNotifier {
+  String _verificationCode = '';
+
+  String get verificationCode => _verificationCode;
+
+  void setVerificationCode(String code) {
+    _verificationCode = code;
+    notifyListeners();
+  }
+
+  bool validateCode(String code) {
+    return _verificationCode == code;
+  }
+}

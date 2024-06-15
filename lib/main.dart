@@ -25,7 +25,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => ChatProvider()),
         ChangeNotifierProvider(create: (context) => UserProvider()),
         ChangeNotifierProvider(create: (context) => LanguageProvider()),
-        ChangeNotifierProvider(create: (context) => FontSizeProvider())
+        ChangeNotifierProvider(create: (context) => FontSizeProvider()),
+        ChangeNotifierProvider(create: (context) => VerificationCodeProvider()),
       ],
       child: Sizer(builder: (context, orientation, deviceType) {
         return MaterialApp(
