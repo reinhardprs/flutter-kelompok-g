@@ -6,6 +6,7 @@ import 'package:money_manage/settings/provid.dart';
 import 'package:money_manage/settings/syarat_ketentuan.dart';
 import 'package:sizer/sizer.dart';
 import 'package:provider/provider.dart';
+import 'package:money_manage/data/data.dart';
 
 import 'about.dart';
 import 'kebijakan_privasi.dart';
@@ -16,7 +17,12 @@ class SettingApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userProvider = Provider.of<UserProvider>(context);
+    final username = userProvider.currentUser?.username ?? 'Guest';
+    final phone = userProvider.currentUser?.phone ?? 'No number';
     var notif = Provider.of<NotifProvider>(context).isNotif;
+    var fontSizeProvider = Provider.of<FontSizeProvider>(context);
+    var fontSize = fontSizeProvider.fontSize;
 
     return Scaffold(
       appBar: PreferredSize(
@@ -26,7 +32,7 @@ class SettingApp extends StatelessWidget {
           title: Text(
             'Setting',
             style: GoogleFonts.abel(
-              fontSize: 15.sp,
+              fontSize: fontSize,
               letterSpacing: 1.0,
               fontWeight: FontWeight.w800,
               color: kTextColor,
@@ -58,18 +64,18 @@ class SettingApp extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Name',
+                              username,
                               style: GoogleFonts.aBeeZee(
-                                fontSize: 10.sp,
+                                fontSize: fontSize,
                                 letterSpacing: 1.0,
                                 fontWeight: FontWeight.w500,
                                 color: kTextColor,
                               ),
                             ),
                             Text(
-                              '082134567890',
+                              phone,
                               style: GoogleFonts.aBeeZee(
-                                fontSize: 10.sp,
+                                fontSize: fontSize,
                                 letterSpacing: 1.0,
                                 fontWeight: FontWeight.w500,
                                 color: kTextColor,
@@ -93,10 +99,9 @@ class SettingApp extends StatelessWidget {
           child: Column(
             children: [
               Image(
-                      image: AssetImage('assets/Logo_SpendWise.png'),
-                      height: 155.0,
-                    ),
-              // SizedBox(height: 30.sp),
+                image: AssetImage('assets/Logo_SpendWise.png'),
+                height: 155.0,
+              ),
               Container(
                 width: double.infinity,
                 padding: EdgeInsets.all(10),
@@ -108,6 +113,7 @@ class SettingApp extends StatelessWidget {
                   children: [
                     CustomFeatureWidget(
                       title: 'My Account',
+                      fontSize: fontSize,
                       onTap: () {
                         Navigator.push(
                           context,
@@ -118,6 +124,7 @@ class SettingApp extends StatelessWidget {
                     SizedBox(height: 5),
                     CustomFeatureWidget(
                       title: 'About',
+                      fontSize: fontSize,
                       onTap: () {
                         Navigator.push(
                           context,
@@ -128,6 +135,7 @@ class SettingApp extends StatelessWidget {
                     SizedBox(height: 5),
                     CustomFeatureWidget(
                       title: 'Syarat & Ketentuan',
+                      fontSize: fontSize,
                       onTap: () {
                         Navigator.push(
                           context,
@@ -139,6 +147,7 @@ class SettingApp extends StatelessWidget {
                     SizedBox(height: 5),
                     CustomFeatureWidget(
                       title: 'Kebijakan Privasi',
+                      fontSize: fontSize,
                       onTap: () {
                         Navigator.push(
                           context,
@@ -163,7 +172,7 @@ class SettingApp extends StatelessWidget {
                         Text(
                           'Language: ',
                           style: GoogleFonts.abel(
-                              fontSize: 12.sp,
+                              fontSize: fontSize,
                               color:
                               kTextColor),
                         ),
@@ -184,7 +193,7 @@ class SettingApp extends StatelessWidget {
                             Text(
                               'Bahasa Indonesia',
                               style: GoogleFonts.abel(
-                                  fontSize: 12.sp,
+                                  fontSize: fontSize,
                                   color:
                                   kTextColor),
                             ),
@@ -203,7 +212,7 @@ class SettingApp extends StatelessWidget {
                             Text(
                               'English',
                               style: GoogleFonts.abel(
-                                  fontSize: 12.sp,
+                                  fontSize: fontSize,
                                   color:
                                   kTextColor),
                             ),
@@ -220,7 +229,7 @@ class SettingApp extends StatelessWidget {
                         Text(
                           'Notifikasi',
                           style: GoogleFonts.abel(
-                              fontSize: 12.sp, color: kTextColor),
+                              fontSize: fontSize, color: kTextColor),
                         ),
                         SwitchListTile(
                           value: notif,
@@ -232,8 +241,28 @@ class SettingApp extends StatelessWidget {
                           title: Text(
                             notif ? "ON" : "OFF",
                             style: GoogleFonts.abel(
-                                fontSize: 10.sp, color: kTextColor),
+                                fontSize: fontSize, color: kTextColor),
                           ),
+                        ),
+                        Divider(
+                          color: kTextColor,
+                          thickness: 1,
+                          height: 10,
+                        ),
+                        Text(
+                          'Font Size',
+                          style: GoogleFonts.abel(
+                              fontSize: fontSize, color: kTextColor),
+                        ),
+                        Slider(
+                          value: fontSizeProvider.sliderValue,
+                          min: 0,
+                          max: 100,
+                          divisions: 10,
+                          label: fontSizeProvider.sliderValue.toInt().toString(),
+                          onChanged: (double newValue) {
+                            fontSizeProvider.setSliderValue(newValue);
+                          },
                         ),
                         Divider(
                           color: kTextColor,
@@ -264,6 +293,7 @@ class SettingApp extends StatelessWidget {
                   ],
                 ),
               ),
+              SizedBox(height: 20),
             ],
           ),
         ),
@@ -275,10 +305,12 @@ class SettingApp extends StatelessWidget {
 class CustomFeatureWidget extends StatelessWidget {
   final String title;
   final VoidCallback onTap;
+  final double fontSize;
 
   const CustomFeatureWidget({
     required this.title,
     required this.onTap,
+    required this.fontSize,
   });
 
   @override
@@ -297,7 +329,7 @@ class CustomFeatureWidget extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: GoogleFonts.abel(fontSize: 12.sp, color: kTextColor),
+                style: GoogleFonts.abel(fontSize: fontSize, color: kTextColor),
               ),
               Icon(
                 Icons.arrow_right,

@@ -24,6 +24,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => NotifProvider()),
         ChangeNotifierProvider(create: (context) => ChatProvider()),
         ChangeNotifierProvider(create: (context) => UserProvider()),
+        ChangeNotifierProvider(create: (context) => LanguageProvider()),
+        ChangeNotifierProvider(create: (context) => FontSizeProvider())
       ],
       child: Sizer(builder: (context, orientation, deviceType) {
         return MaterialApp(
@@ -45,7 +47,7 @@ class MyApp extends StatelessWidget {
           ),
           // home: HomePage(),
           // home: AddTypeNames(),
-          home: HomePage(),
+          home: Login(),
         );
       }),
     );

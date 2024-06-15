@@ -41,3 +41,16 @@ class NotifProvider extends ChangeNotifier {
     notifyListeners();
   }
 }
+
+class FontSizeProvider with ChangeNotifier {
+  double _sliderValue = 50;
+
+  double get sliderValue => _sliderValue;
+
+  double get fontSize => _sliderValue / 50 * 14;
+
+  void setSliderValue(double newValue) {
+    _sliderValue = newValue;
+    notifyListeners();
+  }
+}
