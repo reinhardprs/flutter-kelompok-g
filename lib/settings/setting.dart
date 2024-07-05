@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:money_manage/constants.dart';
 import 'package:money_manage/settings/provid.dart';
@@ -7,6 +6,7 @@ import 'package:money_manage/settings/syarat_ketentuan.dart';
 import 'package:sizer/sizer.dart';
 import 'package:provider/provider.dart';
 import 'package:money_manage/data/data.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'about.dart';
 import 'kebijakan_privasi.dart';
@@ -23,6 +23,7 @@ class SettingApp extends StatelessWidget {
     var notif = Provider.of<NotifProvider>(context).isNotif;
     var fontSizeProvider = Provider.of<FontSizeProvider>(context);
     var fontSize = fontSizeProvider.fontSize;
+    var langProvider = Provider.of<LanguageProvider>(context);
 
     return Scaffold(
       appBar: PreferredSize(
@@ -30,7 +31,7 @@ class SettingApp extends StatelessWidget {
         child: AppBar(
           centerTitle: true,
           title: Text(
-            'Setting',
+            AppLocalizations.of(context)!.setting,
             style: GoogleFonts.abel(
               fontSize: fontSize,
               letterSpacing: 1.0,
@@ -93,26 +94,25 @@ class SettingApp extends StatelessWidget {
           ),
         ),
       ),
-      body: Padding(
-        padding: EdgeInsets.only(top: 0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Image(
-                image: AssetImage('assets/Logo_SpendWise.png'),
-                height: 155.0,
+      body: Column(
+        children: [
+          Image(
+            image: AssetImage('assets/Logo_SpendWise.png'),
+            height: 155.0,
+          ),
+          Expanded(
+            child: Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(1.h),
+                color: kPrimaryColor,
               ),
-              Container(
-                width: double.infinity,
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(1.h),
-                  color: kPrimaryColor,
-                ),
+              child: SingleChildScrollView(
                 child: Column(
                   children: [
                     CustomFeatureWidget(
-                      title: 'My Account',
+                      title: AppLocalizations.of(context)!.myAccount,
                       fontSize: fontSize,
                       onTap: () {
                         Navigator.push(
@@ -123,7 +123,7 @@ class SettingApp extends StatelessWidget {
                     ),
                     SizedBox(height: 5),
                     CustomFeatureWidget(
-                      title: 'About',
+                      title: AppLocalizations.of(context)!.about,
                       fontSize: fontSize,
                       onTap: () {
                         Navigator.push(
@@ -134,7 +134,7 @@ class SettingApp extends StatelessWidget {
                     ),
                     SizedBox(height: 5),
                     CustomFeatureWidget(
-                      title: 'Syarat & Ketentuan',
+                      title: AppLocalizations.of(context)!.termsAndConditions,
                       fontSize: fontSize,
                       onTap: () {
                         Navigator.push(
@@ -146,7 +146,7 @@ class SettingApp extends StatelessWidget {
                     ),
                     SizedBox(height: 5),
                     CustomFeatureWidget(
-                      title: 'Kebijakan Privasi',
+                      title: AppLocalizations.of(context)!.privacyPolicy,
                       fontSize: fontSize,
                       onTap: () {
                         Navigator.push(
@@ -170,7 +170,7 @@ class SettingApp extends StatelessWidget {
                           height: 10,
                         ),
                         Text(
-                          'Language: ',
+                          AppLocalizations.of(context)!.language,
                           style: GoogleFonts.abel(
                               fontSize: fontSize,
                               color:
@@ -184,14 +184,12 @@ class SettingApp extends StatelessWidget {
                               groupValue: Provider.of<LanguageProvider>(context)
                                   .groupButton,
                               onChanged: (val) {
-                                Provider.of<LanguageProvider>(context,
-                                    listen: false)
-                                    .ChangeVal(val!);
+                                langProvider.changeLocale(Locale('en'));
                               },
                               activeColor: kSecondaryColor,
                             ),
                             Text(
-                              'Bahasa Indonesia',
+                              AppLocalizations.of(context)!.english,
                               style: GoogleFonts.abel(
                                   fontSize: fontSize,
                                   color:
@@ -203,14 +201,12 @@ class SettingApp extends StatelessWidget {
                               groupValue: Provider.of<LanguageProvider>(context)
                                   .groupButton,
                               onChanged: (val) {
-                                Provider.of<LanguageProvider>(context,
-                                    listen: false)
-                                    .ChangeVal(val!);
+                                langProvider.changeLocale(Locale('id'));
                               },
                               activeColor: kSecondaryColor,
                             ),
                             Text(
-                              'English',
+                              AppLocalizations.of(context)!.indonesian,
                               style: GoogleFonts.abel(
                                   fontSize: fontSize,
                                   color:
@@ -227,7 +223,7 @@ class SettingApp extends StatelessWidget {
                           height: 10,
                         ),
                         Text(
-                          'Notifikasi',
+                          AppLocalizations.of(context)!.notification,
                           style: GoogleFonts.abel(
                               fontSize: fontSize, color: kTextColor),
                         ),
@@ -239,7 +235,7 @@ class SettingApp extends StatelessWidget {
                           },
                           activeTrackColor: kSecondaryColor,
                           title: Text(
-                            notif ? "ON" : "OFF",
+                            notif ? AppLocalizations.of(context)!.on : AppLocalizations.of(context)!.off,
                             style: GoogleFonts.abel(
                                 fontSize: fontSize, color: kTextColor),
                           ),
@@ -250,7 +246,7 @@ class SettingApp extends StatelessWidget {
                           height: 10,
                         ),
                         Text(
-                          'Font Size',
+                          AppLocalizations.of(context)!.fontSize,
                           style: GoogleFonts.abel(
                               fontSize: fontSize, color: kTextColor),
                         ),
@@ -280,7 +276,7 @@ class SettingApp extends StatelessWidget {
                               //     MaterialPageRoute(builder: (context) => Login()),
                               //     (Route<dynamic> route) => false);
                             },
-                            child: Text("Log Out", style: TextStyle(fontWeight: FontWeight.bold),),
+                            child: Text(AppLocalizations.of(context)!.logOut, style: TextStyle(fontWeight: FontWeight.bold),),
                             style: TextButton.styleFrom(
                               foregroundColor: kTextColor,
                               backgroundColor: kSecondaryColor,
@@ -293,10 +289,9 @@ class SettingApp extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

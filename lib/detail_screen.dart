@@ -13,6 +13,8 @@ import 'manage_data/add_data_detil.dart';
 import 'manage_data/edit_maxAmount_detil.dart';
 // import 'manage_data/edit_max_amount.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class DetailScreen extends StatefulWidget {
   final TypeModel typeModel;
   const DetailScreen({Key? key, required this.typeModel}) : super(key: key);
@@ -51,26 +53,49 @@ class _DetailScreenState extends State<DetailScreen> {
             color: kTextColor,
           ),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              _navigateToAddExpense(context);
-            },
-            icon: Icon(Icons.add_outlined),
-          ),
-          IconButton(
-            onPressed: () {
-              _navigateToEditMaxAmount(context);
-            },
-            icon: Icon(Icons.edit), // Tambahkan IconButton untuk tombol edit
-          ),
-          IconButton(
-            onPressed: () {
-              _showBottomSheet(context);
-            },
-            icon: Icon(Icons.share),
+
+  actions: [
+  Tooltip(
+    message: AppLocalizations.of(context)!.moreOptions,  // Pesan yang akan ditampilkan dalam tooltip
+    child: PopupMenuButton(
+      color: kPrimaryColor,
+      icon: Icon(Icons.more_vert),
+      itemBuilder: (context) => <PopupMenuEntry>[
+        PopupMenuItem(
+          child: ListTile(
+            leading: Icon(Icons.add_outlined, color: kSecondaryColor,),
+            title: Text(AppLocalizations.of(context)!.addExpense, style: TextStyle(color: kTextColor)),
+            onTap: () {
+              Navigator.pop(context);
+                _navigateToAddExpense(context);
+              },
           )
-        ],
+        ),
+        PopupMenuItem(
+          child: ListTile(
+            leading: Icon(Icons.edit, color: kSecondaryColor,),
+            title: Text(AppLocalizations.of(context)!.editMaxExpense, style: TextStyle(color: kTextColor)),
+            onTap: () {
+              Navigator.pop(context);
+                _navigateToEditMaxAmount(context);
+              },
+          )
+        ),
+        PopupMenuItem(
+          child: ListTile(
+            leading: Icon(Icons.share, color: kSecondaryColor,),
+            title: Text(AppLocalizations.of(context)!.share, style: TextStyle(color: kTextColor)),
+            onTap: () {
+              Navigator.pop(context);
+                _showBottomSheet(context);
+              },
+          )
+        ),
+      ]
+    ),
+  )
+],
+
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -141,7 +166,7 @@ class _DetailScreenState extends State<DetailScreen> {
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Text(
-            "No Expense Yet",
+            AppLocalizations.of(context)!.noExpenseYet,
             style: GoogleFonts.atma(
               fontSize: 20,
               fontWeight: FontWeight.w600,

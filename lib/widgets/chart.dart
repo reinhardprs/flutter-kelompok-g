@@ -6,6 +6,8 @@ import 'package:money_manage/data/data.dart';
 
 import '../models/type_model.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class CustomChart extends StatefulWidget {
   const CustomChart({Key? key, required this.typeNames}) : super(key: key);
   final List<TypeModel> typeNames;
@@ -60,7 +62,7 @@ class _CustomChartState extends State<CustomChart> {
       child: Column(
         children: [
           Text(
-            'Weekly Spending',
+            AppLocalizations.of(context)!.weeklySpending,
             style: GoogleFonts.abel(
               fontSize: 30,
               fontWeight: FontWeight.w600,

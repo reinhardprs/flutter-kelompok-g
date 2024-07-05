@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 import 'login.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class resetSuccess extends StatelessWidget {
   const resetSuccess({super.key});
 
@@ -27,7 +29,7 @@ class resetSuccess extends StatelessWidget {
                 height: 20,
               ),
               Text(
-                "Password Reset Successful",
+                AppLocalizations.of(context)!.resetSuccessful,
                 style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
@@ -37,7 +39,7 @@ class resetSuccess extends StatelessWidget {
                 height: 20,
               ),
               Text(
-                "Your password has been reset successfully. You can now login with your new password.",
+                AppLocalizations.of(context)!.msgresetSuccessful,
                 style: TextStyle(
                   fontSize: 20,
                 ),
@@ -61,7 +63,7 @@ class resetSuccess extends StatelessWidget {
                 color: kSecondaryColor,
                 child: Center(
                     child: Text(
-                  "Login",
+                  AppLocalizations.of(context)!.login,
                   style:
                       TextStyle(fontWeight: FontWeight.bold, color: kTextColor),
                 )),

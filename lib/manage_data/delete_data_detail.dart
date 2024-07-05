@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:money_manage/models/cost_model.dart';
 import 'package:money_manage/models/type_model.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class RemoveExpenseScreen extends StatefulWidget {
   final TypeModel typeModel;
 
@@ -16,7 +18,7 @@ class _RemoveExpenseScreenState extends State<RemoveExpenseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Remove Expense'),
+        title: Text(AppLocalizations.of(context)!.removeExpense),
       ),
       body: ListView.builder(
         itemCount: widget.typeModel.expenses!.length,

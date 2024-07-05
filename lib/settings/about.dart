@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:money_manage/constants.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class AboutApl extends StatelessWidget {
   const AboutApl({Key? key}) : super(key: key);
 
@@ -10,7 +12,7 @@ class AboutApl extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'About This App',
+          AppLocalizations.of(context)!.about,
           style: GoogleFonts.abel(
             fontSize: 25.0,
             letterSpacing: 1.0,
@@ -27,7 +29,7 @@ class AboutApl extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Kami percaya bahwa hal besar dimulai dari satu langkah pintar!',style: GoogleFonts.aBeeZee(
+                  Text(AppLocalizations.of(context)!.aboutText1,style: GoogleFonts.aBeeZee(
                       fontSize: 35.0,
                       letterSpacing: 1.0,
                       fontWeight: FontWeight.w900,
@@ -35,7 +37,7 @@ class AboutApl extends StatelessWidget {
                     ),),
                     SizedBox(height: 10,),
                   Text(
-                    'Berdiri sejak tahun 2020, SpendWise didirikan atas nama PT Kelompok G.\n\nDigerakkan oleh visi meningkatkan literasi masyarakat Indonesia, SpendWise berkomitmen untuk menyediakan jasa aplikasi pengatur keuangan dengan aman dan terpercaya. Layanan SpendWise dapat diakses secara online, oleh berbagai lapisan masyarakat.\n\nMisi kami adalah untuk mengedukasi masyarakat Indonesia tentang pentingnya pengelola keuangan yang cerdas. Oleh karena itu, kami sering mengadakan acara edukatif dengan komonitas Sobat SpendWise dan institusi pendidikan.',
+                    AppLocalizations.of(context)!.aboutText2,
                     style: GoogleFonts.aBeeZee(
                       fontSize: 20.0,
                       letterSpacing: 1.0,
@@ -96,7 +98,7 @@ class AboutApl extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Layanan Pengaduan Konsumen',
+                                    AppLocalizations.of(context)!.footer,
                                     style: GoogleFonts.aBeeZee(
                                       fontSize: 18.0,
                                       letterSpacing: 1.0,

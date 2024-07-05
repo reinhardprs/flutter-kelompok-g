@@ -3,6 +3,8 @@ import 'package:money_manage/constants.dart';
 import '../manage_data/add_data.dart';
 import '../manage_data/edit_maxAmount.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class Choice extends StatelessWidget {
   const Choice({Key? key});
 
@@ -40,7 +42,7 @@ class Choice extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 15),
                   child: Text(
-                    'Add Expenses',
+                    AppLocalizations.of(context)!.addExpense,
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
@@ -66,7 +68,8 @@ class Choice extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 15),
                   child: Text(
-                    'Change Max Amount',
+                    AppLocalizations.of(context)!.changeMaxAmount,
+                    // 'Change Max Amount',
                     style: TextStyle(fontSize: 16),
                   ),
                 ),

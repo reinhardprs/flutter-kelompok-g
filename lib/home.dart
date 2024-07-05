@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:money_manage/add%20typeNames.dart';
 import 'package:money_manage/constants.dart';
 import 'package:money_manage/data/data.dart';
 import 'package:money_manage/detail_screen.dart';
 import 'package:money_manage/models/cost_model.dart';
 import 'package:money_manage/models/type_model.dart';
 import 'package:money_manage/settings/chat.dart';
+import 'package:money_manage/settings/myaccount.dart';
 import 'package:money_manage/widgets/chart.dart';
 import 'package:provider/provider.dart';
-import 'add typeNames.dart';
 import 'drawer.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  final bool showPhoneNotSetDialog;
+
+  const HomePage({Key? key, this.showPhoneNotSetDialog = false}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -20,6 +25,52 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Offset _tapPosition = Offset.zero;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
+      if (widget.showPhoneNotSetDialog) {
+        _showPhoneNotSetDialog();
+      }
+    });
+  }
+
+  void _showPhoneNotSetDialog() {
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    final user = userProvider.currentUser;
+
+    if (user != null && user.phone.isEmpty) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text(AppLocalizations.of(context)!.phoneNumberNotSet, style: TextStyle(color: kTextColor)),
+            content: Text(AppLocalizations.of(context)!.phoneNumberDialog, style: TextStyle(color: kTextColor)),
+            backgroundColor: kPrimaryColor,
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text(AppLocalizations.of(context)!.later, style: TextStyle(color: kTextColor)),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MyAccount()),
+                  );
+                },
+                child: Text(AppLocalizations.of(context)!.setPhoneNumbernow, style: TextStyle(color: kTextColor)),
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +156,7 @@ class _HomePageState extends State<HomePage> {
                                 },
                               ),
                               Text(
-                                'Add Other Expense Category',
+                                AppLocalizations.of(context)!.addOtherExpenseCategory,
                                 style: TextStyle(color: kTextColor, fontSize: 15),
                               ),
                             ],
@@ -125,7 +176,6 @@ class _HomePageState extends State<HomePage> {
               }
             }, childCount: 1 + typeNames.length),
           ),
-
         ],
       ),
     );
@@ -153,14 +203,15 @@ class _HomePageState extends State<HomePage> {
             MediaQuery.of(context).size.width - _tapPosition.dx,
             MediaQuery.of(context).size.height - _tapPosition.dy,
           ),
+          color: kPrimaryColor,
           items: [
             PopupMenuItem(
               value: 'view',
-              child: Text('View'),
+              child: Text(AppLocalizations.of(context)!.view, style: TextStyle(color: kTextColor)),
             ),
             PopupMenuItem(
               value: 'delete',
-              child: Text('Delete'),
+              child: Text(AppLocalizations.of(context)!.delete, style: TextStyle(color: kTextColor),),
             ),
           ],
         ).then((value) {
@@ -177,7 +228,7 @@ class _HomePageState extends State<HomePage> {
             });
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text('${category.name} has been deleted'),
+                content: Text(AppLocalizations.of(context)!.msgDeleteCategori('${category.name}')),
               ),
             );
           }

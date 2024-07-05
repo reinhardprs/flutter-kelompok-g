@@ -4,6 +4,8 @@ import 'package:money_manage/constants.dart';
 import 'package:money_manage/models/cost_model.dart';
 import 'package:intl/intl.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class TransactionDetailScreen extends StatefulWidget {
   final CostModel transaction;
 
@@ -79,7 +81,7 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Transaction Detail',
+          AppLocalizations.of(context)!.transactionDetail,
           style: GoogleFonts.aBeeZee(fontSize: 25, fontWeight: FontWeight.w500, color: kTextColor),
         ),
         actions: [
@@ -96,7 +98,7 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
             TextField(
               controller: _nameController,
               decoration: InputDecoration(
-                labelText: 'Transaction Name',
+                labelText: AppLocalizations.of(context)!.transactionName,
                 suffixIcon: Icon(Icons.edit),
               ),
             ),
@@ -104,7 +106,7 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
             TextField(
               controller: _noteController,
               decoration: InputDecoration(
-                labelText: 'Note',
+                labelText: AppLocalizations.of(context)!.note,
                 suffixIcon: Icon(Icons.edit),
               ),
               maxLines: 3,
@@ -112,10 +114,12 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
             SizedBox(height: 20),
             TextFormField(
               decoration: InputDecoration(
-                labelText: 'Created At',
+                labelText: AppLocalizations.of(context)!.createdAt,
               ),
               controller: TextEditingController(
-                text: '${dateFormat.format(_createdAt!)} at ${timeFormat.format(_createdAt!)}',
+                // text: '${dateFormat.format(_createdAt!)} at ${timeFormat.format(_createdAt!)}',
+                // text: '${dateFormat.format(_createdAt!)} at ${timeFormat.format(_createdAt!)}',
+                text: AppLocalizations.of(context)!.dateAtTime('${dateFormat.format(_createdAt!)}', '${timeFormat.format(_createdAt!)}'),
               ),
               readOnly: true,
             ),
@@ -129,11 +133,12 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
               child: AbsorbPointer(
                 child: TextFormField(
                   decoration: InputDecoration(
-                    labelText: 'Last Modified At',
+                    labelText: AppLocalizations.of(context)!.lastModifiedAt,
                     suffixIcon: Icon(Icons.calendar_today),
                   ),
                   controller: TextEditingController(
-                    text: '${dateFormat.format(_lastModifiedAt!)} at ${timeFormat.format(_lastModifiedAt!)}',
+                    // text: '${dateFormat.format(_lastModifiedAt!)} at ${timeFormat.format(_lastModifiedAt!)}',
+                    text: AppLocalizations.of(context)!.dateAtTime('${dateFormat.format(_lastModifiedAt!)}', '${timeFormat.format(_lastModifiedAt!)}'),
                   ),
                 ),
               ),

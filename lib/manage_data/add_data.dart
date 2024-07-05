@@ -6,6 +6,8 @@ import '../home.dart';
 import '../models/cost_model.dart';
 import '../models/type_model.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class AddData extends StatefulWidget {
   const AddData({Key? key}) : super(key: key);
 
@@ -24,7 +26,8 @@ class _AddDataState extends State<AddData> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Add Your Expense",
+          // "Add Your Expense",
+          AppLocalizations.of(context)!.addyourExpense,
           style: TextStyle(
             color: kTextColor,
           ),
@@ -48,7 +51,7 @@ class _AddDataState extends State<AddData> {
                 },
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Choose',
+                  labelText: AppLocalizations.of(context)!.choose,
                   labelStyle: TextStyle(
                     color: kPrimaryColor,
                   ),
@@ -63,7 +66,7 @@ class _AddDataState extends State<AddData> {
                     TextField(
                       controller: _nameController,
                       decoration: InputDecoration(
-                        labelText: 'Nama Cost',
+                        labelText: AppLocalizations.of(context)!.expenseName,
                         border: OutlineInputBorder(),
                         labelStyle: TextStyle(
                           color: kPrimaryColor,
@@ -77,7 +80,7 @@ class _AddDataState extends State<AddData> {
                     TextField(
                       controller: _costController,
                       decoration: InputDecoration(
-                        labelText: 'Jumlah Cost',
+                        labelText: AppLocalizations.of(context)!.expenseCost,
                         border: OutlineInputBorder(),
                         labelStyle: TextStyle(
                           color: kPrimaryColor,
@@ -98,7 +101,7 @@ class _AddDataState extends State<AddData> {
                           (route) => false,
                         );
                       },
-                      child: Text('Save'),
+                      child: Text(AppLocalizations.of(context)!.save),
                       style: ElevatedButton.styleFrom(
                         foregroundColor: kPrimaryColor,
                         backgroundColor: kTextColor,
@@ -108,7 +111,8 @@ class _AddDataState extends State<AddData> {
                     // Menampilkan sisa saldo
                     _selectedItem != null
                         ? Text(
-                            'Sisa Saldo: \$${_calculateRemainingBalance()}',
+                            AppLocalizations.of(context)!.remainingbalance('\$${_calculateRemainingBalance()}'),
+                            // 'Sisa Saldo: \$${_calculateRemainingBalance()}',
                             style: TextStyle(
                               color: kPrimaryColor,
                               fontWeight: FontWeight.bold,
@@ -167,13 +171,13 @@ class _AddDataState extends State<AddData> {
 
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Data saved successfully'),
+            content: Text(AppLocalizations.of(context)!.dataSaved),
           ),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Balance is not enough'),
+            content: Text(AppLocalizations.of(context)!.balanceNotEnough),
             backgroundColor: Colors.red,
           ),
         );
@@ -181,7 +185,7 @@ class _AddDataState extends State<AddData> {
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Name and Cost Amount must be filled in and valid'),
+          content: Text(AppLocalizations.of(context)!.fieldsMustBeFilled2),
           backgroundColor: Colors.red,
         ),
       );

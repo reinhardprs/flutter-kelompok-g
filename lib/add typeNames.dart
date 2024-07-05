@@ -4,6 +4,8 @@ import 'data/data.dart';
 import 'home.dart';
 import 'models/type_model.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class AddTypeNames extends StatefulWidget {
   const AddTypeNames({super.key});
 
@@ -22,7 +24,7 @@ class _AddTypeNamesState extends State<AddTypeNames> {
     if (name.isEmpty || maxAmount == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Please enter valid name and max amount!'),
+          content: Text(AppLocalizations.of(context)!.enterValidNameMax),
         ),
       );
       return;
@@ -36,7 +38,7 @@ class _AddTypeNamesState extends State<AddTypeNames> {
       });
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('$name has been added successfully!'),
+          content: Text(AppLocalizations.of(context)!.msgNameSuccess('$name')),
         ),
       );
       Navigator.pushReplacement(
@@ -46,7 +48,7 @@ class _AddTypeNamesState extends State<AddTypeNames> {
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('$name already exists!'),
+          content: Text(AppLocalizations.of(context)!.nameAlreadyExists('$name')),
         ),
       );
     }
@@ -57,7 +59,7 @@ class _AddTypeNamesState extends State<AddTypeNames> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Add Expense Category",
+          AppLocalizations.of(context)!.addExpenseCategory,
           style: TextStyle(color: kTextColor),
         ),
         centerTitle: true,
@@ -71,7 +73,7 @@ class _AddTypeNamesState extends State<AddTypeNames> {
               TextField(
                 controller: _nameController,
                 decoration: InputDecoration(
-                  labelText: 'Category Name',
+                  labelText: AppLocalizations.of(context)!.categoryName,
                   border: OutlineInputBorder(),
                 ),
               ),
@@ -79,7 +81,7 @@ class _AddTypeNamesState extends State<AddTypeNames> {
               TextField(
                 controller: _maxAmountController,
                 decoration: InputDecoration(
-                  labelText: 'Max Amount',
+                  labelText: AppLocalizations.of(context)!.maxAmount,
                   border: OutlineInputBorder(),
                 ),
                 keyboardType: TextInputType.number,
@@ -87,7 +89,7 @@ class _AddTypeNamesState extends State<AddTypeNames> {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _addTypeName,
-                child: Text('Add Category'),
+                child: Text(AppLocalizations.of(context)!.addCategory),
               ),
             ],
           ),

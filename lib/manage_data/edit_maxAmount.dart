@@ -6,6 +6,8 @@ import 'package:money_manage/data/data.dart';
 import '../home.dart';
 import '../models/type_model.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class EditMaxAmount extends StatefulWidget {
   const EditMaxAmount({Key? key}) : super(key: key);
 
@@ -23,7 +25,7 @@ class _EditMaxAmountState extends State<EditMaxAmount> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Edit Your Max Expense",
+          AppLocalizations.of(context)!.editMaxAmount,
           style: TextStyle(
             color: kTextColor,
           ),
@@ -51,21 +53,22 @@ class _EditMaxAmountState extends State<EditMaxAmount> {
                     border: OutlineInputBorder(
                       borderSide: BorderSide(color: kPrimaryColor),
                     ),
-                    labelText: 'Choose',
+                    labelText: AppLocalizations.of(context)!.choose,
                     labelStyle: TextStyle(color: kPrimaryColor),
                 ),
                 items: _buildDropdownItems(),
               ),
               SizedBox(height: 20),
               Text(
-                'Max Amount Now: $_maxAmount',
+                AppLocalizations.of(context)!.maxAmountNow('$_maxAmount'),
+                // 'Max Amount Now: $_maxAmount',
                 style: TextStyle(fontSize: 16, color: kPrimaryColor),
               ),
               Visibility(
                 visible: _showTextFields,
                 child: TextField(
                   decoration: InputDecoration(
-                    labelText: 'New Max Amount',
+                    labelText: AppLocalizations.of(context)!.newMaxAmount,
                     border: OutlineInputBorder(),
                     labelStyle: TextStyle(color: kPrimaryColor),
                   ),
@@ -91,7 +94,7 @@ class _EditMaxAmountState extends State<EditMaxAmount> {
                     (route) => false,
                   );
                 },
-                child: Text('Change'),
+                child: Text(AppLocalizations.of(context)!.change),
               ),
               SizedBox(height: 20),
 
@@ -126,13 +129,13 @@ class _EditMaxAmountState extends State<EditMaxAmount> {
       selectedType.maxAmount = _maxAmount;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Max Amount updated successfully.'),
+          content: Text(AppLocalizations.of(context)!.maxAmounSuccess),
         ),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Please select an item first.'),
+          content: Text(AppLocalizations.of(context)!.selectItem),
           backgroundColor: Colors.red,
         ),
       );

@@ -4,9 +4,23 @@ import 'package:money_manage/constants.dart';
 import 'package:provider/provider.dart';
 import 'package:money_manage/models/user_model.dart';
 import 'package:money_manage/data/data.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class MyAccount extends StatelessWidget {
+class MyAccount extends StatefulWidget {
   const MyAccount({super.key});
+
+  @override
+  _MyAccountState createState() => _MyAccountState();
+}
+
+class _MyAccountState extends State<MyAccount> {
+  bool _showPassword = false;
+
+  void _toggleShowPassword() {
+    setState(() {
+      _showPassword = !_showPassword;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +29,7 @@ class MyAccount extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'My Account',
+          AppLocalizations.of(context)!.myAccount,
           style: GoogleFonts.abel(
             fontSize: 25.0,
             letterSpacing: 1.0,
@@ -63,12 +77,12 @@ class MyAccount extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _buildEditableListItem(
-                      context, 'Nama', user?.username ?? 'Unknown', 'username'),
+                      context, AppLocalizations.of(context)!.name, user?.username ?? 'Unknown', 'username'),
                   _buildEditableListItem(
                       context, 'Email', user?.email ?? 'Unknown', 'email'),
-                  _buildEditableListItem(context, 'No. Handphone',
-                      user?.phone ?? 'Unknown', 'phone'),
-                  // Tambahkan field lain sesuai dengan kebutuhan Anda
+                  _buildEditableListItem(
+                      context, AppLocalizations.of(context)!.phoneNumber, user?.phone ?? '', 'phone'),
+                  _buildPasswordItem(context, user?.password ?? '********'),
                 ],
               ),
             ),
@@ -78,8 +92,79 @@ class MyAccount extends StatelessWidget {
     );
   }
 
+  Widget _buildPasswordItem(BuildContext context, String password) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: Text(
+                AppLocalizations.of(context)!.password,
+                style: GoogleFonts.aBeeZee(
+                  fontSize: 20.0,
+                  letterSpacing: 1.0,
+                  fontWeight: FontWeight.w500,
+                  color: kTextColor,
+                ),
+              ),
+            ),
+            IconButton(
+              icon: Icon(Icons.edit),
+              color: kTextColor,
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => EditDialog(
+                    title: AppLocalizations.of(context)!.password,
+                    field: AppLocalizations.of(context)!.password,
+                    currentValue: password,
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+        SizedBox(height: 5),
+        Padding(
+          padding: EdgeInsets.only(left: 10),
+          child: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  _showPassword ? password : '********',
+                  style: GoogleFonts.aBeeZee(
+                    fontSize: 15.0,
+                    letterSpacing: 1.0,
+                    fontWeight: FontWeight.w500,
+                    color: kTextColor,
+                  ),
+                ),
+              ),
+              IconButton(
+                icon: Icon(
+                  _showPassword ? Icons.visibility_off : Icons.visibility,
+                ),
+                color: kTextColor,
+                onPressed: _toggleShowPassword,
+              ),
+            ],
+          ),
+        ),
+        Divider(
+          color: kTextColor,
+          thickness: 1,
+          height: 10,
+        ),
+        SizedBox(height: 20),
+      ],
+    );
+  }
+
   Widget _buildEditableListItem(
       BuildContext context, String title, String content, String field) {
+    String displayContent = content.isEmpty ? AppLocalizations.of(context)!.setPhoneNumber : content;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -119,12 +204,12 @@ class MyAccount extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                content,
+                displayContent,
                 style: GoogleFonts.aBeeZee(
                   fontSize: 15.0,
                   letterSpacing: 1.0,
                   fontWeight: FontWeight.w500,
-                  color: kTextColor,
+                  color: content.isEmpty ? Colors.grey : kTextColor,
                 ),
               ),
               Divider(
@@ -154,6 +239,7 @@ class EditDialog extends StatefulWidget {
 
 class _EditDialogState extends State<EditDialog> {
   late TextEditingController _controller;
+  bool _showPassword = false;
 
   @override
   void initState() {
@@ -167,20 +253,33 @@ class _EditDialogState extends State<EditDialog> {
     super.dispose();
   }
 
+  void _toggleShowPassword() {
+    setState(() {
+      _showPassword = !_showPassword;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    bool isPasswordField = widget.field == 'password';
+
     return AlertDialog(
-      title: Text('Edit ${widget.title}'),
+      title: Text(AppLocalizations.of(context)!.edit('${widget.title}')),
       content: TextField(
         controller: _controller,
+        obscureText: isPasswordField && !_showPassword,
         decoration: InputDecoration(
-          hintText: 'Enter new ${widget.title.toLowerCase()}',
+          hintText: AppLocalizations.of(context)!.enterNew('${widget.title.toLowerCase()}'),
+          suffixIcon: isPasswordField ? IconButton(
+            icon: Icon(_showPassword ? Icons.visibility_off : Icons.visibility),
+            onPressed: _toggleShowPassword,
+          ) : null,
         ),
       ),
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: Text('Cancel'),
+          child: Text(AppLocalizations.of(context)!.cancelButtonText),
         ),
         TextButton(
           onPressed: () {
@@ -191,7 +290,7 @@ class _EditDialogState extends State<EditDialog> {
             }
             Navigator.of(context).pop();
           },
-          child: Text('Save'),
+          child: Text(AppLocalizations.of(context)!.save),
         ),
       ],
     );
@@ -207,7 +306,7 @@ class BottomSheetContent extends StatelessWidget {
         children: <Widget>[
           ListTile(
             leading: Icon(Icons.visibility),
-            title: Text('View Profile Picture'),
+            title: Text(AppLocalizations.of(context)!.viewProfilePicture),
             onTap: () {
               Navigator.pop(context);
               showDialog(
@@ -222,7 +321,7 @@ class BottomSheetContent extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.camera_alt),
-            title: Text('Change Profile Picture'),
+            title: Text(AppLocalizations.of(context)!.changeProfilePicture),
             onTap: () {
               // Implement change profile picture functionality here
               Navigator.pop(context);
@@ -272,14 +371,27 @@ Widget ProfilePicDialog(BuildContext context, String imageUrl, String name) {
               height: 250,
             ),
             Container(
-              color: darkMode ? Color.fromRGBO(137, 137, 137, 60) : Colors.white,
+              color: darkMode ? Color.fromRGBO(137, 137, 137, 0.9) : Colors.white,
               width: 300,
-              height: 50,
-              child: IconButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                icon: Icon(Icons.close, color: Colors.blue),
+              child: Wrap(
+                children: <Widget>[
+                  ListTile(
+                    leading: Icon(Icons.download),
+                    title: Text(AppLocalizations.of(context)!.download),
+                    onTap: () {
+                      // Implement download functionality here
+                      Navigator.pop(context);
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.share),
+                    title: Text(AppLocalizations.of(context)!.share),
+                    onTap: () {
+                      // Implement share functionality here
+                      Navigator.pop(context);
+                    },
+                  ),
+                ],
               ),
             ),
           ],

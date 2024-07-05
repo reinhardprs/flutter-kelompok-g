@@ -7,6 +7,8 @@ import 'package:money_manage/settings/setting.dart';
 import 'package:money_manage/constants.dart';
 import 'package:provider/provider.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import 'data/data.dart';
 
 class NavDrawer extends StatelessWidget {
@@ -60,7 +62,7 @@ class NavDrawer extends StatelessWidget {
                   ),
                   ListTile(
                     title: Text(
-                      "Home",
+                      AppLocalizations.of(context)!.home,
                       style: TextStyle(color: kTextColor),
                     ),
                     leading: Icon(Icons.home, color: kSecondaryColor),
@@ -73,7 +75,7 @@ class NavDrawer extends StatelessWidget {
                   Divider(color: Colors.grey[400]),
                   ListTile(
                     title: Text(
-                      "Add Expense",
+                      AppLocalizations.of(context)!.addExpense,
                       style: TextStyle(color: kTextColor),
                     ),
                     leading: Icon(Icons.add, color: kSecondaryColor),
@@ -86,7 +88,7 @@ class NavDrawer extends StatelessWidget {
                   Divider(color: Colors.grey[400]),
                   ListTile(
                     title: Text(
-                      "Edit Max Expense",
+                      AppLocalizations.of(context)!.editMaxExpense,
                       style: TextStyle(color: kTextColor),
                     ),
                     leading: Icon(Icons.edit, color: kSecondaryColor),
@@ -99,7 +101,7 @@ class NavDrawer extends StatelessWidget {
                   Divider(color: Colors.grey[400]),
                   ListTile(
                     title: Text(
-                      "Settings",
+                      AppLocalizations.of(context)!.setting,
                       style: TextStyle(color: kTextColor),
                     ),
                     leading: Icon(Icons.settings, color: kSecondaryColor),
@@ -123,7 +125,7 @@ class NavDrawer extends StatelessWidget {
                   ListTile(
                     leading: Icon(Icons.logout, color: kSecondaryColor),
                     title: Text(
-                      'Log Out',
+                      AppLocalizations.of(context)!.logOut,
                       style: TextStyle(color: kTextColor),
                     ),
                     onTap: () {
@@ -144,11 +146,11 @@ class NavDrawer extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           backgroundColor: kTextColor,
-          title: Text('Log Out'),
-          content: Text('Are you sure you want to log out?'),
+          title: Text(AppLocalizations.of(context)!.logOut),
+          content: Text(AppLocalizations.of(context)!.msgLogOut),
           actions: [
             TextButton(
-              child: Text('Yes'),
+              child: Text(AppLocalizations.of(context)!.yes),
               onPressed: () {
                 Navigator.of(context).pop();
                 Navigator.of(context).pushAndRemoveUntil(
@@ -158,7 +160,7 @@ class NavDrawer extends StatelessWidget {
               },
             ),
             TextButton(
-              child: Text('No'),
+              child: Text(AppLocalizations.of(context)!.no),
               onPressed: () {
                 Navigator.of(context).pop(); // Close the dialog
               },

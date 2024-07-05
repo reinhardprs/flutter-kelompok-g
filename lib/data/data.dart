@@ -6,13 +6,24 @@ import '../models/user_model.dart';
 List<double> calculateWeeklySpending(List<TypeModel> typeNames, DateTime startDate, DateTime endDate) {
   List<double> weeklySpending = List<double>.filled(7, 0);
 
-  typeNames.forEach((type) {
-    type.expenses?.forEach((expense) {
-      if (expense.createdAt!.isAfter(startDate.subtract(Duration(days: 1))) && expense.createdAt!.isBefore(endDate.add(Duration(days: 1)))) {
-        int dayOfWeek = expense.createdAt!.weekday % 7;  // Convert to 0 (Sunday) - 6 (Saturday) format
-        weeklySpending[dayOfWeek] += expense.cost!;
-      }
-    });
+  // typeNames.forEach((type) {
+  //   type.expenses?.forEach((expense) {
+  //     if (expense.createdAt!.isAfter(startDate.subtract(Duration(days: 1))) && expense.createdAt!.isBefore(endDate.add(Duration(days: 1)))) {
+  //       int dayOfWeek = expense.createdAt!.weekday % 7;  // Convert to 0 (Sunday) - 6 (Saturday) format
+  //       weeklySpending[dayOfWeek] += expense.cost!;
+  //     }
+  //   });
+  // });
+
+    typeNames.forEach((type) {
+    if (type.expenses != null) {
+      type.expenses!.forEach((expense) {
+        if (expense.createdAt != null && expense.createdAt!.isAfter(startDate.subtract(Duration(days: 1))) && expense.createdAt!.isBefore(endDate.add(Duration(days: 1)))) {
+          int dayOfWeek = expense.createdAt!.weekday % 7;  // Convert to 0 (Sunday) - 6 (Saturday) format
+          weeklySpending[dayOfWeek] += expense.cost ?? 0;
+        }
+      });
+    }
   });
 
   return weeklySpending;

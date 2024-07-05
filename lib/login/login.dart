@@ -7,7 +7,10 @@ import 'package:money_manage/login/register.dart';
 import 'package:money_manage/models/user_model.dart';
 import 'package:provider/provider.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import '../home.dart';
+import 'add_email.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -26,21 +29,21 @@ class _LoginState extends State<Login> {
 
     // Check if the user exists
     UserModel? user = userRegistrations.firstWhere(
-          (user) => user.email == input || user.phone == input,
+      (user) => user.email == input || user.phone == input,
       orElse: () => UserModel(username: '', email: '', password: '', phone: ''),
     );
 
     if (user.username == '') {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Account not registered'),
+          content: Text(AppLocalizations.of(context)!.accountNotRegistered),
           backgroundColor: Colors.red,
         ),
       );
     } else if (user.password != password) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Username or password invalid'),
+          content: Text(AppLocalizations.of(context)!.invalidUnamePsw),
           backgroundColor: Colors.red,
         ),
       );
@@ -53,6 +56,55 @@ class _LoginState extends State<Login> {
         MaterialPageRoute(builder: (BuildContext context) => HomePage()),
       );
     }
+  }
+
+  void _showEmailSelectionDialog() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(AppLocalizations.of(context)!.selectEmail),
+          content: Container(
+            width: double.maxFinite,
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: userRegistrations.length + 1,
+              itemBuilder: (context, index) {
+                if (index < userRegistrations.length) {
+                  return ListTile(
+                    leading: Icon(Icons.person),
+                    title: Text(userRegistrations[index].email),
+                    onTap: () {
+                      Provider.of<UserProvider>(context, listen: false)
+                          .setCurrentUser(userRegistrations[index]);
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomePage()),
+                      );
+                    },
+                  );
+                } else {
+                  return ListTile(
+                    leading: Icon(Icons.add),
+                    title: Text(AppLocalizations.of(context)!.addAnotherAccount),
+                    onTap: () async {
+                      Navigator.pop(context);
+                      final newEmail = await Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => AddEmailPage()),
+                      );
+                      if (newEmail != null) {
+                        setState(() {});
+                      }
+                    },
+                  );
+                }
+              },
+            ),
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -78,7 +130,7 @@ class _LoginState extends State<Login> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Hello, \nWelcome Back",
+                AppLocalizations.of(context)!.helloGreeting,
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -97,7 +149,7 @@ class _LoginState extends State<Login> {
                       controller: _emailPhoneController,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintText: "Email or Phone number",
+                        hintText: AppLocalizations.of(context)!.emailorPhone,
                       ),
                     ),
                   ),
@@ -113,7 +165,7 @@ class _LoginState extends State<Login> {
                       obscureText: true,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintText: "Password",
+                        hintText: AppLocalizations.of(context)!.password,
                       ),
                     ),
                   ),
@@ -123,12 +175,11 @@ class _LoginState extends State<Login> {
                       Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(builder: (context) => forgotPassword()),
-                            (route) => false,
+                        (route) => false,
                       );
                     },
                     child: Text(
-                      "Forgot Password",
-                      // style: Theme.of(context).textTheme.bodyText1,
+                      AppLocalizations.of(context)!.forgotPassword,
                     ),
                   ),
                   SizedBox(height: 20),
@@ -136,7 +187,7 @@ class _LoginState extends State<Login> {
               ),
               Center(
                 child: MaterialButton(
-                  onPressed: () => {},
+                  onPressed: _showEmailSelectionDialog,
                   elevation: 0,
                   padding: EdgeInsets.all(18),
                   shape: RoundedRectangleBorder(
@@ -147,23 +198,23 @@ class _LoginState extends State<Login> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Login with Google",
+                        AppLocalizations.of(context)!.loginwithGoogle,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
                         ),
                       ),
-                      SizedBox(width: 20), // Jarak antara teks dan gambar
+                      SizedBox(width: 20),
                       Image.network(
                         'https://cdn-icons-png.flaticon.com/512/300/300221.png',
-                        width: 24, // Sesuaikan lebar gambar sesuai kebutuhan
-                        height: 24, // Sesuaikan tinggi gambar sesuai kebutuhan
+                        width: 24,
+                        height: 24,
                       ),
                     ],
                   ),
                 ),
               ),
-              Center(child: Text("OR")),
+              Center(child: Text(AppLocalizations.of(context)!.or)),
               Column(
                 children: [
                   MaterialButton(
@@ -176,7 +227,7 @@ class _LoginState extends State<Login> {
                     color: kSecondaryColor,
                     child: Center(
                       child: Text(
-                        "Login",
+                        AppLocalizations.of(context)!.login,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: kTextColor,
@@ -190,12 +241,11 @@ class _LoginState extends State<Login> {
                       Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(builder: (context) => Register()),
-                            (route) => false,
+                        (route) => false,
                       );
                     },
                     child: Text(
-                      "Create account",
-                      // style: Theme.of(context).textTheme.bodyText1,
+                      AppLocalizations.of(context)!.createAccount,
                     ),
                   )
                 ],
