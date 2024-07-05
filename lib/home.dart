@@ -17,7 +17,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class HomePage extends StatefulWidget {
   final bool showPhoneNotSetDialog;
 
-  const HomePage({Key? key, this.showPhoneNotSetDialog = false}) : super(key: key);
+  const HomePage({Key? key, this.showPhoneNotSetDialog = false})
+      : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -45,15 +46,18 @@ class _HomePageState extends State<HomePage> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text(AppLocalizations.of(context)!.phoneNumberNotSet, style: TextStyle(color: kTextColor)),
-            content: Text(AppLocalizations.of(context)!.phoneNumberDialog, style: TextStyle(color: kTextColor)),
+            title: Text(AppLocalizations.of(context)!.phoneNumberNotSet,
+                style: TextStyle(color: kTextColor)),
+            content: Text(AppLocalizations.of(context)!.phoneNumberDialog,
+                style: TextStyle(color: kTextColor)),
             backgroundColor: kPrimaryColor,
             actions: [
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: Text(AppLocalizations.of(context)!.later, style: TextStyle(color: kTextColor)),
+                child: Text(AppLocalizations.of(context)!.later,
+                    style: TextStyle(color: kTextColor)),
               ),
               TextButton(
                 onPressed: () {
@@ -63,7 +67,8 @@ class _HomePageState extends State<HomePage> {
                     MaterialPageRoute(builder: (context) => MyAccount()),
                   );
                 },
-                child: Text(AppLocalizations.of(context)!.setPhoneNumbernow, style: TextStyle(color: kTextColor)),
+                child: Text(AppLocalizations.of(context)!.setPhoneNumbernow,
+                    style: TextStyle(color: kTextColor)),
               ),
             ],
           );
@@ -136,30 +141,45 @@ class _HomePageState extends State<HomePage> {
                         typeNames: typeNames,
                       ),
                     ),
-                    SizedBox(height: 7,),
+                    SizedBox(
+                      height: 7,
+                    ),
                     Center(
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
-                        child: Container(
-                          color: kPrimaryColor,
-                          width: 430,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              IconButton(
-                                icon: Icon(Icons.add, color: kTextColor, size: 35),
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => AddTypeNames()),
-                                  );
-                                },
-                              ),
-                              Text(
-                                AppLocalizations.of(context)!.addOtherExpenseCategory,
-                                style: TextStyle(color: kTextColor, fontSize: 15),
-                              ),
-                            ],
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AddTypeNames()),
+                            );
+                          },
+                          child: Container(
+                            color: kPrimaryColor,
+                            width: 430,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                IconButton(
+                                  icon: Icon(Icons.add,
+                                      color: kTextColor, size: 35),
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => AddTypeNames()),
+                                    );
+                                  },
+                                ),
+                                Text(
+                                  AppLocalizations.of(context)!
+                                      .addOtherExpenseCategory,
+                                  style: TextStyle(
+                                      color: kTextColor, fontSize: 15),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -207,11 +227,15 @@ class _HomePageState extends State<HomePage> {
           items: [
             PopupMenuItem(
               value: 'view',
-              child: Text(AppLocalizations.of(context)!.view, style: TextStyle(color: kTextColor)),
+              child: Text(AppLocalizations.of(context)!.view,
+                  style: TextStyle(color: kTextColor)),
             ),
             PopupMenuItem(
               value: 'delete',
-              child: Text(AppLocalizations.of(context)!.delete, style: TextStyle(color: kTextColor),),
+              child: Text(
+                AppLocalizations.of(context)!.delete,
+                style: TextStyle(color: kTextColor),
+              ),
             ),
           ],
         ).then((value) {
@@ -228,7 +252,8 @@ class _HomePageState extends State<HomePage> {
             });
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text(AppLocalizations.of(context)!.msgDeleteCategori('${category.name}')),
+                content: Text(AppLocalizations.of(context)!
+                    .msgDeleteCategori('${category.name}')),
               ),
             );
           }
