@@ -268,22 +268,22 @@ class SettingApp extends StatelessWidget {
                         SizedBox(
                           height: 20,
                         ),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: TextButton(
-                            onPressed: () {
-                              // Navigator.of(context).pushAndRemoveUntil(
-                              //     MaterialPageRoute(builder: (context) => Login()),
-                              //     (Route<dynamic> route) => false);
-                            },
-                            child: Text(AppLocalizations.of(context)!.logOut, style: TextStyle(fontWeight: FontWeight.bold),),
-                            style: TextButton.styleFrom(
-                              foregroundColor: kTextColor,
-                              backgroundColor: kSecondaryColor,
-                              padding: EdgeInsets.all(20),
-                            ),
-                          ),
-                        ),
+                        // Align(
+                        //   alignment: Alignment.centerRight,
+                        //   child: TextButton(
+                        //     onPressed: () {
+                        //       // Navigator.of(context).pushAndRemoveUntil(
+                        //       //     MaterialPageRoute(builder: (context) => Login()),
+                        //       //     (Route<dynamic> route) => false);
+                        //     },
+                        //     child: Text(AppLocalizations.of(context)!.logOut, style: TextStyle(fontWeight: FontWeight.bold),),
+                        //     style: TextButton.styleFrom(
+                        //       foregroundColor: kTextColor,
+                        //       backgroundColor: kSecondaryColor,
+                        //       padding: EdgeInsets.all(20),
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ],
