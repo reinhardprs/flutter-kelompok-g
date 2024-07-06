@@ -187,6 +187,27 @@ class _LoginState extends State<Login> {
               ),
               Center(
                 child: MaterialButton(
+                  onPressed: _login,
+                  elevation: 0,
+                  padding: EdgeInsets.all(18),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  color: kSecondaryColor,
+                  child: Center(
+                    child: Text(
+                      AppLocalizations.of(context)!.login,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: kTextColor,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Center(child: Text(AppLocalizations.of(context)!.or)),
+              Center(
+                child: MaterialButton(
                   onPressed: _showEmailSelectionDialog,
                   elevation: 0,
                   padding: EdgeInsets.all(18),
@@ -214,41 +235,24 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
-              Center(child: Text(AppLocalizations.of(context)!.or)),
-              Column(
-                children: [
-                  MaterialButton(
-                    onPressed: _login,
-                    elevation: 0,
-                    padding: EdgeInsets.all(18),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    color: kSecondaryColor,
-                    child: Center(
+              Center(
+                child: Column(
+                  children: [
+                    SizedBox(height: 30),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (context) => Register()),
+                          (route) => false,
+                        );
+                      },
                       child: Text(
-                        AppLocalizations.of(context)!.login,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: kTextColor,
-                        ),
+                        AppLocalizations.of(context)!.createAccount,
                       ),
-                    ),
-                  ),
-                  SizedBox(height: 30),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(builder: (context) => Register()),
-                        (route) => false,
-                      );
-                    },
-                    child: Text(
-                      AppLocalizations.of(context)!.createAccount,
-                    ),
-                  )
-                ],
+                    )
+                  ],
+                ),
               ),
             ],
           ),

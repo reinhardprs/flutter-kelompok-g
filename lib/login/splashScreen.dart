@@ -21,12 +21,11 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
-    var secondaryColor = kSecondaryColor;
     nextPage(context);
     return Scaffold(
       body: Center(
         child: Container(
-          height: w / 2.75,
+          height: w / 2.50,
           width: w / 4,
           child: Animator<double>(
             duration: Duration(milliseconds: 2000),
