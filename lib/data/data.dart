@@ -89,22 +89,22 @@ List<TypeModel> typeNames = [
 
 List<UserModel> userRegistrations = [
   UserModel(
-    username: 'user1',
-    email: 'user1@example.com',
-    password: 'password1',
-    phone: '1234567890',
+    username: 'Jwike',
+    email: 'jwike@mail.com',
+    password: 'password',
+    phone: '082162187311',
   ),
   UserModel(
-    username: 'user2',
-    email: 'user2@example.com',
-    password: 'password2',
-    phone: '0987654321',
+    username: 'Reinhard',
+    email: 'reinhard@mail.com',
+    password: 'password',
+    phone: '082189528639',
   ),
   UserModel(
-    username: 'user3',
-    email: 'user3@example.com',
-    password: 'password3',
-    phone: '1122334455',
+    username: 'Wahyu',
+    email: 'Wahyu@mail.com',
+    password: 'password',
+    phone: '081370483744',
   ),
 ];
 
