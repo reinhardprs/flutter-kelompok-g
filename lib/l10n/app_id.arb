@@ -1,0 +1,209 @@
+{
+    "setting": "Pengaturan",
+    "name": "Nama",
+    "phoneNumber": "Nomor Telepon",
+    "setPhoneNumber": "Setel Nomor Telepon",
+    "dateOfBirth": "Tanggal Lahir",
+    "gender": "Jenis Kelamin",
+    "myAccount": "Akun Saya",
+    "about": "Tentang Aplikasi ini",
+    "termsAndConditions": "Syarat & Ketentuan",
+    "privacyPolicy": "Kebijakan Privasi",
+    "language": "Bahasa",
+    "english": "Inggris",
+    "indonesian": "Bahasa Indonesia",
+    "notification": "Notifikasi",
+    "fontSize": "Ukuran Huruf",
+    "logOut": "Keluar",
+    "msgLogOut": "Apakah Anda yakin ingin keluar?",
+    "on": "NYALA",
+    "off": "MATI",
+    "home": "Beranda",
+    "addExpense": "Tambah Pengeluaran",
+    "editMaxExpense": "Ubah Maks Pengeluaran",
+    "share": "Bagikan",
+    "moreOptions": "Opsi lainnya",
+    "aboutText1": "Kami percaya bahwa hal besar dimulai dari satu langkah pintar!",
+    "aboutText2": "Berdiri sejak tahun 2020, SpendWise didirikan atas nama PT Kelompok G.\n\nDigerakkan oleh visi meningkatkan literasi masyarakat Indonesia, SpendWise berkomitmen untuk menyediakan jasa aplikasi pengatur keuangan dengan aman dan terpercaya. Layanan SpendWise dapat diakses secara online, oleh berbagai lapisan masyarakat.\n\nMisi kami adalah untuk mengedukasi masyarakat Indonesia tentang pentingnya pengelola keuangan yang cerdas. Oleh karena itu, kami sering mengadakan acara edukatif dengan komonitas Sobat SpendWise dan institusi pendidikan.",
+    "footer": "Layanan Pengaduan Konsumen",
+    "termsAndConditionsText1": "Syarat dan Ketentuan ('Syarat dan Ketentuan') ini dan segala peraturan atau kebijakan lain yang tersedia pada aplikasi SpendWise merupakan perjanjian-perjanjian yang mengikat berdasarkan Hukum yang Berlaku antara Pengguna dan PT Kelompok G.\nKami mewajibkan Anda untuk membaca seluruh isi Perjanjian dan apabila Anda memiliki pertanyaan apapun mengenai Perjanjian, Anda dapat menghubungi Kami melalui admin@SpendWise.id.",
+    "termsAndConditionsText2": "1. Syarat Penggunaan",
+    "termsAndConditionsText3": "Anda menyetujui hal-hal berikut sehubungan dengan penggunaan Layanan:\n  1. SpendWise dapat mengumpulkan Informasi Pribadi Anda, seperti nama, alamat email selama proses pendaftaran Aplikasi atau ketika Aplikasi menjalankan fungsinya baik untuk penggunaan Layanan atau fungsi lainnya yang diperlukan untuk mendukung ekosistem Layanan. Anda diharapkan untuk memperbarui Informasi Pribadi Anda jika terdapat perubahan Informasi Pribadi seperti alamat email.\n  2. SpendWise dapat menggunakan email Anda untuk mendaftar kepada newsletter, survei, atau aktivitas lain SpendWise yang terkait dengan Layanan. SpendWise hanya mengumpulkan Informasi Pribadi jika Anda telah setuju untuk berpartisipasi dalam aktivitas terkait. Anda dapat menolak untuk berpartisipasi dalam program SpendWise.\n  3.Anda setuju untuk mematuhi Hukum Yang Berlaku sehubungan dengan penggunaan Aplikasi.\n 4. Anda hanya dapat mendaftarkan satu akun di Aplikasi dan bertanggung jawab penuh atas segala aktivitas yang terjadi melalui akses Aplikasi Anda termasuk tanggung jawab atas semua tindakan penggunaan Layanan oleh siapa pun atas nama Anda. Untuk menjaga kendali atas akun dan mencegah siapapun dapat mengakses akun (yang akan mencakup informasi tentang melihat riwayat akun), Anda bertanggung jawab atas kendali dan akses Layanan dan tidak mengungkapkan OTP, Pin Otorisasi, atau informasi metode pembayaran kepada siapapun.\n 5. Informasi yang diberikan melalui Aplikasi atau media sosial SpendWise tidak boleh disalahgunakan untuk tujuan investasi ilegal atau tujuan penipuan yang dapat merugikan orang lain.\n  6. Anda tidak diperbolehkan untuk mencoba mengganggu fungsi pengoperasian Aplikasi atau situs web SpendWise. Hal ini termasuk mengirimkan permintaan pencarian melalui robot, crawlers untuk mendapatkan konten atau Informasi Pribadi pada Layanan dan menyebarkan virus yang dapat mengganggu pengoperasian Aplikasi SpendWise.",
+    "termsAndConditionsText4": "2. Kewajiban Pengguna",
+    "termsAndConditionsText5": "  1. Pengguna harus memastikan hanya memakai Layanan pada Aplikasi untuk keperluan Pengguna yang benar dan secara sah, sesuai dengan Hukum Yang Berlaku, Syarat dan Ketentuan dan pemberitahuan yang diumumkan oleh SpendWise atau ketentuan yang tercantum di Aplikasi. Pengguna boleh memakai Layanan dan Aplikasi atas nama orang atau badan lain, atau untuk memberikan Layanan kepada mereka, tetapi Pengguna harus memastikan bahwa Pengguna mempunyai wewenang untuk melakukannya, dan semua pihak yang menerima Layanan melalui Pengguna memenuhi dan menyetujui semua syarat dalam Syarat dan Ketentuan ini yang berlaku kepada Pengguna.\n 2. Pengguna berkewajiban untuk menjaga kerahasiaan akun termasuk OTP dan Pin Otorisasi, serta bertanggung jawab sepenuhnya atas segala kegiatan yang diatasnamakan nama akun Pengguna. SpendWise tidak bertanggung jawab atas penyalahgunaan akun, manipulasi data, penghapusan data, maupun pemblokiran akun akibat kelalaian Pengguna dalam menjaga dan mengelola akun, serta kebocoran akun Pengguna akibat kelalaian Pengguna dalam menyimpan, mengingat, atau memberikan informasi atas akun kepada pihak lain. Pengguna setuju untuk segera memberitahukan kepada SpendWise setiap adanya dugaan penggunaan yang tidak sah atau tidak valid dengan pengatasnamaan nama akun Pengguna.",
+    "termsAndConditionsText6": "3. Kewajiban SpendWise",
+    "termsAndConditionsText7": "SpendWise berkewajiban untuk berusaha semaksimal mungkin untuk mengelola dan merawat Aplikasi serta Layanan agar dapat digunakan dengan baik dan lancar. SpendWise dengan ini berkewajiban untuk dapat memberikan bantuan teknis dan/atau operasional kepada Pengguna dalam hal terjadi gangguan yang masih termasuk dalam batas kewajaran sesuai dengan standar layanan SpendWise, termasuk memberikan edukasi terkait penggunaan Aplikasi dan Layanan.\n",
+    "privacyPolicyText1": "Kebijakan privasi ('Kebijakan Privasi') ini adalah kebijakan yang dikeluarkan oleh SpendWise (sebagaimana didefinisikan selanjutnya) yang mengatur tentang cara SpendWise mengumpulkan, mengolah, menggunakan, dan mengungkapkan data dan informasi Pengguna (sebagaimana didefinisikan selanjutnya) dalam Aplikasi (sebagaimana didefinisikan selanjutnya). SpendWise berkomitmen untuk melindungi privasi Pengguna. SpendWise bertanggung jawab untuk menjunjung tinggi prinsip-prinsip pengelolaan data dengan integritas penuh, dimana SpendWise selalu menjadikan keamanan data Pengguna sebagai prioritas utama SpendWise. Untuk itu, keamanan data Pengguna (serta data lain yang Pengguna percayakan kepada SpendWise) adalah hal terpenting bagi SpendWise. Kebijakan Privasi ini menjelaskan bagaimana informasi pribadi Pengguna dikumpulkan, digunakan, dan diungkapkan oleh SpendWise.\n\nKami mewajibkan Anda untuk membaca seluruh isi Perjanjian dan apabila Anda memiliki pertanyaan apapun mengenai Perjanjian, Anda dapat menghubungi Kami melalui admin@SpendWise.id.\n\n Kebijakan Privasi ini berlaku untuk Aplikasi (sebagaimana didefinisikan selanjutnya). Akses kepada Layanan yang tersedia melalui Aplikasi bergantung pada persetujuan Pengguna atas Kebijakan Privasi ini yang sebaiknya dibaca bersama-sama dengan Syarat dan Ketentuan. Persetujuan Pengguna atas Kebijakan Privasi ini, bersama-sama dengan Syarat dan Ketentuan, membentuk perjanjian antara SpendWise dan Pengguna sehubungan dengan penggunaan Aplikasi oleh Pengguna",
+    "privacyPolicyText2": "1. Informasi yang dikumpulkan SpendWise atau diberikan oleh Pengguna secara langsung",
+    "privacyPolicyText3": "  1. SpendWise mengumpulkan Informasi Pribadi tertentu dari Pengguna agar Aplikasi dapat menjalankan fungsinya baik untuk penggunaan Layanan atau fungsi lainnya yang diperlukan untuk mendukung ekosistem Layanan. Informasi Pribadi dapat Pengguna berikan secara langsung (sebagai contoh, data saat Pengguna mendaftar ke dalam Aplikasi seperti nama, alamat email atau nomor telepon, dan keterangan lainnya) maupun terkumpul secara otomatis ketika Pengguna menggunakan Aplikasi, sesuai dengan Syarat dan Ketentuan.\n 2. Ketika Pengguna mengunjungi Aplikasi, administrator Aplikasi akan memproses data teknis (baik yang secara otomatis dikumpulkan atau disediakan oleh Pengguna) seperti alamat protokol internet (internet protocol address) Pengguna, halaman web yang pernah Pengguna kunjungi, browser internet yang Pengguna gunakan, halaman web yang sebelumnya/ selanjutnya Pengguna kunjungi, durasi setiap kunjungan/ sesi, identitas (ID) perangkat internet dan informasi mengenai pabrikan, model, dan sistem operasi dari perangkat yang Pengguna gunakan untuk mengakses Aplikasi yang memungkinkan SpendWise untuk mengirimkan fungsi-fungsi dari Aplikasi, menyelesaikan kesulitan-kesulitan teknis, menyediakan bagi Pengguna versi Aplikasi yang benar dan terkini serta untuk meningkatkan fungsi Aplikasi. Sebagai tambahan, dalam beberapa hal, browser dapat menyarankan Pengguna agar mengaktifkan fungsi Geo-Location Pengguna untuk memungkinkan SpendWise memberikan Pengguna suatu pengalaman yang lebih baik dalam menggunakan internet dan/atau Aplikasi. Dengan data teknis ini administrator-administrator Aplikasi dapat mengelola Aplikasi, misalnya dengan menyelesaikan kesulitan-kesulitan teknis atau memperbaiki kemampuan akses bagian-bagian tertentu dari Aplikasi. Dengan cara ini, SpendWise dapat memastikan bahwa Pengguna dapat terus menemukan informasi pada Aplikasi dengan cara yang cepat dan sederhana.\n 3. SpendWise dapat mengumpulkan informasi dari kesan, pesan, kritik, dan saran yang diberikan Pengguna, pembicaraan melalui chat dan interaksi lainnya di Aplikasi, dan/atau seluruh  data yang Pengguna masukkan ke dalam Aplikasi.\n  4. Pengguna mungkin dapat memberikan kode rujukan (referral code) kepada pihak lain melalui Aplikasi, dalam bentuk suatu pesan yang SpendWise siapkan untuk Pengguna kirimkan atau terbitkan melalui fasilitas pengiriman pesan elektronik atau melalui penyedia media sosial. Pengguna tidak dapat mengubah kalimat pesan yang telah SpendWise siapkan sebelum Pengguna mengirimkannya. SpendWise tidak akan mengumpulkan data pihak yang Pengguna kirimi pesan tersebut.\n  5. SpendWise akan mengumpulkan informasi pada saat Pengguna memasukkan informasi dalam bentuk apapun dalam Aplikasi, pada saat menghubungi tim customer service SpendWise, dan pada saat mengakses Aplikasi, termasuk namun tidak terbatas pada kesan, pesan, kritik, dan saran dari Pengguna, pembicaraan melalui chat, dan interaksi lainnya di Aplikasi. Data yang Pengguna masukkan adalah data Pengguna sendiri yang Pengguna anggap benar, dan Pengguna bertanggung jawab penuh atas segala data yang Pengguna masukkan dalam Aplikasi.",
+    "privacyPolicyText4": "2. Perlindungan dan Kerahasiaan Informasi",
+    "privacyPolicyText5": "  1. SpendWise menerapkan berbagai langkah pengamanan untuk menjaga keamanan informasi pribadi Anda saat Anda melakukan pemesanan atau memasukkan, mengirimkan, atau mengakses informasi pribadi Anda. Kami menawarkan penggunaan server yang aman. Semua informasi sensitif/kredensial yang diberikan ditransmisikan melalui teknologi Secure Socket Layer (SSL) dan kemudian dienkripsi ke dalam basis data penyedia gerbang pembayaran kami hanya untuk dapat diakses oleh mereka yang berwenang dengan hak akses khusus ke sistem tersebut, dan diwajibkan untuk menjaga kerahasiaan informasi tersebut. Setelah terjadinya transaksi, Informasi Pribadi Anda yang terkait (kartu kredit, nomor jaminan sosial, keuangan, dll) tidak pernah disimpan secara online. Kami tidak dapat, bagaimanapun, memastikan atau menjamin keamanan mutlak dari setiap informasi yang Anda kirimkan kepada kami atau menjamin bahwa informasi Anda pada Layanan tidak dapat diakses, diungkapkan, diubah, atau dihancurkan oleh pelanggaran fisik, teknis, atau manajerial keamanan kami.\n 2. Kecuali sebagaimana diatur lain dalam Kebijakan Privasi ini, SpendWise akan menjaga kerahasiaan Informasi Pribadi. SpendWise tidak akan membagikannya kepada para pihak ketiga, kecuali SpendWise meyakini dengan itikad baik bahwa pengungkapan Informasi Pribadi Anda atau setiap informasi lainnya yang SpendWise kumpulkan mengenai Anda dibutuhkan untuk Penggunaan yang Diperbolehkan atau untuk:",
+    "privacyPolicyText6": "• Mematuhi putusan pengadilan atau proses hukum lainnya;\n• Melindungi hak, properti atau keselamatan SpendWise;\n• Memberlakukan Perjanjian, termasuk Syarat dan Ketentuan;\n• Menanggapi klaim-klaim bahwa terdapat posting atau konten lainnya yang melanggar hak-hak para pihak ketiga; atau\n• Penggunaan yang Diperbolehkan berdasarkan Kebijakan Privasi ini.\n",
+    "customerService": "Layanan Pelanggan",
+    "type": "Tipe: {typeName}",
+    "@type": {
+        "placeholders": {
+            "typeName": {
+                "type": "String"
+            }
+        }
+    },
+    "remainingbalance": "Sisa Saldo: {balance}",
+    "@remainingbalance": {
+        "placeholders": {
+            "balance": {
+                "type": "String"
+            }
+        }
+      },
+    "expenseName": "Nama Pengeluaran",
+    "expenseCost": "Biaya Pengeluaran",
+    "expenseNote": "Catatan Pengeluaran",
+    "addExpenseButton": "Tambah Pengeluaran",
+    "dataSaved": "Data berhasil disimpan",
+    "balanceNotEnough": "Saldo tidak cukup",
+    "fieldsMustBeFilled": "Nama, Jumlah Biaya, dan Catatan harus diisi dan valid",
+    "addyourExpense": "Tambahkan Pengeluaran Anda",
+    "choose": "Pilih",
+    "save": "Simpan",
+    "fieldsMustBeFilled2": "Nama dan Jumlah Biaya harus diisi dan valid",
+    "removeExpense": "Hapus Pengeluaran",
+    "discardChange": "Buang Perubahan?",
+    "msgdiscardChange": "Anda memiliki perubahan yang belum disimpan. Apakah Anda benar-benar ingin membuangnya?",
+    "no": "Tidak",
+    "yes": "Ya",
+    "editMaxAmount": "Edit Jumlah Maks",
+    "maxAmount": "Jumlah Maks",
+    "msgmaxAmount": "Jumlah maksimal tidak boleh kurang dari total pengeluaran",
+    "maxAmounSuccess": "Jumlah maksimum berhasil diperbarui",
+    "maxAmountNow": "Jumlah Maks Sekarang",
+    "@maxAmountNow": {
+        "placeholders": {
+            "maxAmount": {
+                "type": "String"
+            }
+        }
+    },
+    "newMaxAmount": "Jumlah Maks Baru",
+    "change": "Ubah",
+    "selectItem": "Silakan pilih item terlebih dahulu.",
+    "changeMaxAmount": "Ubah Jumlah Maks",
+    "enterValidNameMax": "Silakan masukkan nama yang valid dan jumlah maksimal!",
+    "msgNameSuccess": "{name} berhasil ditambahkan!",
+    "@msgNameSuccess": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "nameAlreadyExists": "{Name} sudah ada!",
+    "@nameAlreadyExists": {
+        "placeholders": {
+            "Name": {
+                "type": "String"
+            }
+        }
+    },
+    "addExpenseCategory": "Tambahkan Kategori Pengeluaran",
+    "categoryName": "Nama Kategori",
+    "addCategory": "Tambahkan Kategori",
+    "noExpenseYet": "Belum Ada Pengeluaran",
+    "transactionDetail": "Rincian Transaksi",
+    "transactionName": "Nama Transaksi",
+    "note": "Catatan",
+    "createdAt": "Dibuat Pada",
+    "dateAtTime": "{date} pukul {time}",
+    "@dateAtTime": {
+        "placeholders": {
+            "date": {
+                "type": "String"
+            },
+            "time": {
+                "type": "String"
+            }
+        }
+    },
+    "lastModifiedAt": "Terakhir Dimodifikasi Pada",
+    "weeklySpending": "Pengeluaran Mingguan",
+    "appTitle": "SpendWise",
+    "addEmail": "Tambahkan Email",
+    "email": "Email",
+    "password": "Kata Sandi",
+    "emailAlreadyExistsMessage": "Email Sudah Ada.",
+    "invalidEmailPasswordMessage": "Silakan masukkan email dan kata sandi yang valid",
+    "signInDialogTitle": "Masuk ke SpendWise",
+    "signInDialogContent": "Dengan melanjutkan, Google akan membagikan nama, alamat email, preferensi bahasa, dan foto profil Anda dengan SpendWise. Lihat Kebijakan Privasi dan Ketentuan Layanan SpendWise.\n\nAnda dapat mengelola Masuk dengan Google di Akun Google Anda.",
+    "cancelButtonText": "Batal",
+    "continueButtonText": "Lanjutkan",
+    "accountNotFound": "Akun tidak ditemukan",
+    "verificationCode": "Kode Verifikasi",
+    "verificationCodeis": "Kode verifikasi Anda adalah: {code}",
+    "@verificationCodeis": {
+        "placeholders": {
+            "code": {
+                "type": "String"
+            }
+        }
+    },
+    "invalidVerificationCode": "Kode verifikasi tidak valid",
+    "resetyourPassword": "Setel Ulang Kata Sandi Anda",
+    "sendCode": "Kirim Kode",
+    "enterNewPassword": "Masukkan kata sandi baru Anda",
+    "reset": "Setel Ulang",
+    "accountNotRegistered": "Akun tidak terdaftar",
+    "invalidUnamePsw": "Nama pengguna atau kata sandi tidak valid",
+    "selectEmail": "Pilih Email",
+    "addAnotherAccount": "Tambahkan Akun Lain",
+    "helloGreeting": "Halo, \nSelamat Datang Kembali",
+    "emailorPhone": "Email atau Nomor Telepon",
+    "forgotPassword": "Lupa Kata Sandi",
+    "loginwithGoogle": "Masuk dengan Google",
+    "or": "ATAU",
+    "login": "Masuk",
+    "createAccount": "Buat akun",
+    "passwordsDoNotMatch": "Kata sandi tidak cocok",
+    "accountAlreadyExists": "Akun sudah ada",
+    "repeatPassword": "Ulangi Kata Sandi",
+    "registerwithGoogle": "Daftar dengan Google",
+    "register": "Daftar",
+    "alreadyhaveAccount": "Sudah punya akun? Masuk di sini",
+    "resetSuccessful": "Reset Kata Sandi Berhasil",
+    "msgresetSuccessful": "Kata sandi Anda telah berhasil diatur ulang. Anda sekarang dapat masuk dengan kata sandi baru Anda.",
+    "enterNew": "Masukkan yang baru {value}",
+    "@enterNew": {
+        "placeholders": {
+            "value": {
+                "type": "String"
+            }
+        }
+    },
+    "viewProfilePicture": "Lihat Gambar Profil",
+    "changeProfilePicture": "Ganti Gambar Profil",
+    "download": "Unduh",
+    "edit": "Ubah {Value}",
+    "@edit": {
+        "placeholders": {
+            "Value": {
+                "type": "String"
+            }
+        }
+    },
+    "phoneNumberNotSet": "Nomor Telepon belum Disetel",
+    "phoneNumberDialog": "Anda belum menyetel nomor telepon. Apakah Anda ingin menyetelnya sekarang?",
+    "later": "Nanti",
+    "setPhoneNumbernow": "Setel Nomor Telepon",
+    "addOtherExpenseCategory": "Tambahkan Kategori Pengeluaran Lainnya",
+    "view": "Lihat",
+    "delete": "Hapus",
+    "msgDeleteCategori": "{category} telah dihapus",
+    "@msgDeleteCategori": {
+        "placeholders": {
+            "category": {
+                "type": "String"
+            }
+        }
+    },
+    "fillAllFields": "Silakan masukkan nama pengguna, email, dan kata sandi yang valid"
+  }
+  

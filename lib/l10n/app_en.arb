@@ -1,0 +1,281 @@
+{
+    "setting": "Setting",
+    "@setting": {
+        "description": "Setting App"
+    },
+    "name": "Name",
+    "@name": {
+        "description": "User Name"
+    },
+    "phoneNumber": "Phone Number",
+    "@phoneNumber": {
+        "description": "Phone Number"
+    },
+    "setPhoneNumber": "Set Phone Number",
+    "dateOfBirth": "Date of Birth",
+    "@dateOfBirth": {
+        "description": "User's Date of Birth"
+    },
+    "gender": "Gender",
+    "@gender": {
+        "description": "User's Gender"
+    },
+    "myAccount": "My Account",
+    "@myAccount": {
+        "description": "Account Profile"
+    },
+    "about": "About this App",
+    "@about": {
+        "description": "About this App"
+    },
+    "termsAndConditions": "Terms & Conditions",
+    "@termsAndConditions": {
+        "description": "Terms & Conditions this App"
+    },
+    "privacyPolicy": "Privacy Policy",
+    "@privacyPolicy": {
+        "description": "Privacy Policy this App"
+    },
+    "language": "Language",
+    "@language": {
+        "description": "Language Choices"
+    },
+    "english": "English",
+    "@english": {
+        "description": "English Choice"
+    },
+    "indonesian": "Indonesian",
+    "@indonesian": {
+        "description": "Indonesian Choice"
+    },
+    "notification": "Notification",
+    "@notification": {
+        "description": "Notifixation App"
+    },
+    "fontSize": "Font Size",
+    "@fontSize": {
+        "description": ""
+    },
+    "logOut": "Log Out",
+    "@logOut": {
+        "description": "Log Out this App"
+    },
+    "msgLogOut": "Are you sure you want to log out?",
+    "on": "ON",
+    "@on": {
+        "description": "Turn on Notification"
+    },
+    "off": "OFF",
+    "@off": {
+        "description": "Turn off Notification"
+    },
+    "home": "Home",
+    "@home": {
+        "description": "Main Page"
+    },
+    "addExpense": "Add Expense",
+    "@addExpense": {
+        "description": "Add Expense Feature"
+    },
+    "editMaxExpense": "Edit Max Expense",
+    "@editMaxExpense": {
+        "description": "Edit Max Expense Feature"
+    },
+    "share": "Share",
+    "@share": {
+        "description": "Share this Page"
+    },
+    "aboutText1": "We believe that great things start with one smart move!",
+    "@aboutText1": {
+        "description": ""
+    },
+    "aboutText2": "Founded in 2020, SpendWise was established in the name of PT Grup G.\n\nDriven by the vision of increasing the literacy of the Indonesian people, SpendWise is committed to providing safe and reliable financial management application services. SpendWise services can be accessed online, by various levels of society.\n\nOur mission is to educate the Indonesian people about the importance of smart financial management. Therefore, we often hold educational events with SpendWise's community and educational institutions.",
+    "@aboutText2": {
+        "description": ""
+    },
+    "footer": "Consumer Complaints Service",
+    "@footer": {
+        "description": ""
+    },
+    "moreOptions": "More options",
+    "termsAndConditionsText1": "These Terms and Conditions ('Terms and Conditions') and all other rules or policies available on the SpendWise application constitute binding agreements based on Applicable Law between Users and PT Group G.\nWe require you to read the entire contents of the Agreement and if If you have any questions regarding the Agreement, you can contact us via admin@SpendWise.id.",
+    "termsAndConditionsText2": "1. Terms of Use",
+    "termsAndConditionsText3": "You agree to the following in connection with the use of the Service:\n 1. SpendWise may collect your Personal Information, such as name, email address during the Application registration process or when the Application performs its functions either for the use of the Service or other functions required to support the Service ecosystem. You are expected to update your Personal Information if there is a change in Personal Information such as email address.\n 2. SpendWise may use your email to register for SpendWise newsletters, surveys or other activities related to the Service. SpendWise only collects Personal Information if you have agreed to participate in the relevant activity. You may refuse to participate in the SpendWise program.\n 3.You agree to comply with Applicable Laws in connection with the use of the Application.\n 4. You may only register one account on the Application and are fully responsible for all activities that occur through your Application access including responsibility for all acts of use of the Services by anyone on your behalf. To maintain control over your account and prevent anyone from accessing your account (which will include information about viewing your account history), you are responsible for control and access of the Services and do not disclose your OTP, Authorization Pin, or payment method information to anyone.\n 5. Information provided via the SpendWise Application or social media must not be misused for illegal investment purposes or fraudulent purposes that could harm other people.\n 6. You are not permitted to try to interfere with the operational functions of the SpendWise Application or website. This includes sending search requests through robots, crawlers to obtain content or Personal Information on the Services and spreading viruses that may interfere with the operation of the SpendWise Application.",
+    "termsAndConditionsText4": "2. User Obligations",
+    "termsAndConditionsText5": "  1. Users must ensure that they only use the Services on the Application for the User's correct and legal needs, in accordance with Applicable Law, Terms and Conditions and notifications published by SpendWise or the conditions stated in the Application. Users may use the Services and Applications on behalf of other people or entities, or to provide Services to them, but Users must ensure that Users have the authority to do so, and all parties who receive Services through Users fulfill and agree to all the terms and conditions in these Terms and Conditions. applies to the User.\n 2. The User is obliged to maintain the confidentiality of the account including the OTP and Authorization Pin, and is fully responsible for all activities in the name of the User's account. SpendWise is not responsible for account misuse, data manipulation, data deletion, or account blocking due to the User's negligence in maintaining and managing the account, as well as User account leaks due to the User's negligence in storing, remembering, or providing account information to other parties. The User agrees to immediately notify SpendWise of any suspected unauthorized or invalid use of the User's account name.",
+    "termsAndConditionsText6": "3. SpendWise Obligations",
+    "termsAndConditionsText7": "SpendWise is obliged to make every effort to manage and maintain the Application and Services so that they can be used properly and smoothly. SpendWise is hereby obliged to provide technical and/or operational assistance to Users in the event of disruptions that are within reasonable limits in accordance with SpendWise service standards, including providing education regarding the use of the Application and Services.\n",
+    "privacyPolicyText1": "This privacy policy ('Privacy Policy') is a policy issued by SpendWise (as defined hereinafter) which regulates how SpendWise collects, processes, uses and discloses User data and information (as defined hereinafter) in the Application (as defined hereafter). SpendWise is committed to protecting User privacy. SpendWise is responsible for upholding the principles of data management with full integrity, where SpendWise always makes the security of User data a top priority for SpendWise. For this reason, the security of User data (as well as other data that Users entrust to SpendWise) is the most important thing for SpendWise. This Privacy Policy explains how Users' personal information is collected, used and disclosed by SpendWise.\n\nWe require you to read the entire contents of the Agreement and if you have any questions regarding the Agreement, you can contact us via admin@SpendWise.id.\n \n This Privacy Policy applies to the Application (as defined hereinafter). Access to the Services available through the Application depends on the User's agreement to this Privacy Policy which should be read together with the Terms and Conditions. User's agreement to this Privacy Policy, together with the Terms and Conditions, forms an agreement between SpendWise and User with respect to User's use of the Application",
+    "privacyPolicyText2": "1. Information that SpendWise collects or provides directly from Users",
+    "privacyPolicyText3": "1. SpendWise collects certain Personal Information from Users so that the Application can carry out its functions either for use of the Service or other functions needed to support the Service ecosystem. Users can provide Personal Information directly (for example, data when Users register on the Application such as name, email address or telephone number, and other information) or collect it automatically when Users use the Application, in accordance with the Terms and Conditions.\n 2. When the User visits the Application, the Application administrator will process technical data (either automatically collected or provided by the User) such as the User's internet protocol address, the web pages the User has visited, the internet browser the User has used, the previous web pages / next User visit, the duration of each visit/session, the identity (ID) of the internet device and information regarding the manufacturer, model and operating system of the device that the User uses to access the Application which allows SpendWise to deliver the functions of the Application, resolve difficulties technical, to provide Users with the correct and most current version of the Application and to improve the functionality of the Application. In addition, in some cases, the browser may advise the User to activate the User Geo-Location function to enable SpendWise to provide the User with a better experience in using the internet and/or the Application. With this technical data, Application administrators can manage the Application, for example by resolving technical difficulties or improving the access capabilities of certain parts of the Application. In this way, SpendWise can ensure that Users can continue to find information on the Application in a fast and simple way.\n 3. SpendWise may collect information from impressions, messages, criticism and suggestions given by Users, conversations via chat and other interactions on the Application, and/or all data that Users enter into the Application.\n 4. Users may be able to provide referral code to other parties through the Application, in the form of a message that SpendWise prepares for Users to send or publish via electronic messaging facilities or through social media providers. Users cannot change the wording of messages that SpendWise has prepared before Users send them. SpendWise will not collect data from the party the User sends the message to.\n 5. SpendWise will collect information when the User enters information in any form in the Application, when contacting the SpendWise customer service team, and when accessing the Application, including but not limited to impressions, messages, criticism and suggestions from Users, conversations via chat and other interactions on the Application. The data that the User enters is the User's own data that the User considers to be correct, and the User is fully responsible for all data that the User enters in the Application.",
+    "privacyPolicyText4": "2. Protection and Confidentiality of Information",
+    "privacyPolicyText5": "  1. SpendWise implements a variety of security measures to maintain the security of your personal information when you place an order or enter, submit, or access your personal information. We offer the use of a secure server. All sensitive/credential information provided is transmitted via Secure Socket Layer (SSL) technology and then encrypted into our payment gateway provider's database only to be accessed by those authorized with special access rights to such systems, and required to maintain the confidentiality of such information . Once a transaction occurs, your associated Personal Information (credit card, social security number, financials, etc.) is never stored online. We cannot, however, ensure or warrant the absolute security of any information you transmit to us or guarantee that your information on the Service may not be accessed, disclosed, altered, or destroyed by breach of our physical, technical, or managerial security.\n 2 . Except as otherwise provided in this Privacy Policy, SpendWise will maintain the confidentiality of Personal Information. SpendWise will not share it with third parties, unless SpendWise believes in good faith that disclosure of your Personal Information or any other information that SpendWise collects about you is necessary for Permitted Use or to:",
+    "privacyPolicyText6": "• Comply with court decisions or other legal processes;\n• Protect SpendWise's rights, property or safety;\n• Enforce the Agreement, including Terms and Conditions;\n• Respond to claims that posts or other content violates the rights of third party; or\n• Permitted Uses under this Privacy Policy.\n",
+    "customerService": "Customer Service",
+    "type": "Type: {typeName}",
+    "@type": {
+        "placeholders": {
+            "typeName": {
+                "type": "String"
+            }
+        }
+    },
+    "remainingbalance": "Remaining Balance: {balance}",
+    "@remainingbalance": {
+        "placeholders": {
+            "balance": {
+                "type": "String"
+            }
+        }
+    },
+    "expenseName": "Expense Name",
+    "expenseCost": "Expense Cost",
+    "expenseNote": "Expense Note",
+    "addExpenseButton": "Add Expense",
+    "dataSaved": "Data saved successfully",
+    "balanceNotEnough": "Balance is not enough",
+    "fieldsMustBeFilled": "Name, Cost Amount, and Note must be filled in and valid",
+    "addyourExpense": "Add Your Expense",
+    "choose": "Choose",
+    "save": "Save",
+    "fieldsMustBeFilled2": "Name and Cost Amount must be filled in and valid",
+    "removeExpense": "Remove Expense",
+    "discardChange": "Discard Change?",
+    "msgdiscardChange": "You have unsaved change. Do you really want to discard them?",
+    "no": "No",
+    "yes": "Yes",
+    "editMaxAmount": "Edit Your Max Amount",
+    "maxAmount": "Max Amount",
+    "msgmaxAmount": "Max amount cannot be less than total expenses",
+    "maxAmounSuccess": "Max amount updated successfully",
+    "maxAmountNow": "Max Amount Now {maxAmount}",
+    "@maxAmountNow": {
+        "placeholders": {
+            "maxAmount": {
+                "type": "String"
+            }
+        }
+    },
+    "newMaxAmount": "New Max Amount",
+    "change": "Change",
+    "selectItem": "Please select an item first.",
+    "changeMaxAmount": "Change Max Amount",
+    "enterValidNameMax": "Please enter valid name and max amount!",
+    "msgNameSuccess": "{name} has been added successfully!",
+    "@msgNameSuccess": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "nameAlreadyExists": "{Name} already exists!",
+    "@nameAlreadyExists": {
+        "placeholders": {
+            "Name": {
+                "type": "String"
+            }
+        }
+    },
+    "addExpenseCategory": "Add Expense Category",
+    "categoryName": "Category Name",
+    "addCategory": "Add Category",
+    "noExpenseYet": "No Expense Yet",
+    "transactionDetail": "Transaction Detail",
+    "transactionName": "Transaction Name",
+    "note": "Note",
+    "createdAt": "Created At",
+    "dateAtTime": "{date} at {time}",
+    "@dateAtTime": {
+        "placeholders": {
+            "date": {
+                "type": "String"
+            },
+            "time": {
+                "type": "String"
+            }
+        }
+    },
+    "lastModifiedAt": "Last Modified At",
+    "weeklySpending": "Weekly Spending",
+    "appTitle": "SpendWise",
+    "addEmail": "Add Email",
+    "email": "Email",
+    "password": "Password",
+    "emailAlreadyExistsMessage": "Email Already Exists.",
+    "invalidEmailPasswordMessage": "Please enter a valid email and password",
+    "signInDialogTitle": "Sign in to SpendWise",
+    "signInDialogContent": "By continuing, Google will share your name, email address, language preference, and profile picture with SpendWise. See SpendWise's Privacy Policy and Term of Service.\n\nYou can manage Sign in with Google in your Google Account.",
+    "cancelButtonText": "Cancel",
+    "continueButtonText": "Continue",
+    "accountNotFound": "Account not found",
+    "verificationCode": "Verification Code",
+    "verificationCodeis": "Your verification code is: {code}",
+    "@verificationCodeis": {
+        "placeholders": {
+            "code": {
+                "type": "String"
+            }
+        }
+    },
+    "invalidVerificationCode": "Invalid verification code",
+    "resetyourPassword": "Reset your Password",
+    "sendCode": "Send Code",
+    "enterNewPassword": "Enter your new password",
+    "reset": "Reset",
+    "accountNotRegistered": "Account not registered",
+    "invalidUnamePsw": "Username or password invalid",
+    "selectEmail": "Select Email",
+    "addAnotherAccount": "Add Another Account",
+    "helloGreeting": "Hello, \nWelcome Back",
+    "emailorPhone": "Email or Phone number",
+    "forgotPassword": "Forgot Password",
+    "loginwithGoogle": "Login with Google",
+    "or": "OR",
+    "login": "Login",
+    "createAccount": "Create account",
+    "passwordsDoNotMatch": "Passwords do not match",
+    "accountAlreadyExists": "Account already exists",
+    "repeatPassword": "Repeat Password",
+    "registerwithGoogle": "Register with Google",
+    "register": "Register",
+    "alreadyhaveAccount": "Already have an account? Sign In here",
+    "resetSuccessful": "Password Reset successfully",
+    "msgresetSuccessful": "Your password has been reset successfully. You can now login with your new password.",
+    "enterNew": "Enter New {value}",
+    "@enterNew": {
+        "placeholders": {
+            "value": {
+                "type": "String"
+            }
+        }
+    },
+    "viewProfilePicture": "View Profile Picture",
+    "changeProfilePicture": "Change Profile Picture",
+    "download": "Download",
+    "edit": "Edit {Value}",
+    "@edit": {
+        "placeholders": {
+            "Value": {
+                "type": "String"
+            }
+        }
+    },
+    "phoneNumberNotSet": "Phone Number Not Set",
+    "phoneNumberDialog": "You have not set a phone number. Would you like to set it now?",
+    "later": "Later",
+    "setPhoneNumbernow": "Set Phone Number",
+    "addOtherExpenseCategory": "Add Other Expense Category",
+    "view": "View",
+    "delete": "Delete",
+    "msgDeleteCategori": "{category} has been deleted",
+    "@msgDeleteCategori": {
+        "placeholders": {
+            "category": {
+                "type": "String"
+            }
+        }
+    },
+    "fillAllFields": "Please enter a valid username, email and password"
+  }
+  

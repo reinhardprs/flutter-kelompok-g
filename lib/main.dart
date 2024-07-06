@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:money_manage/add%20typeNames.dart';
 import 'package:money_manage/constants.dart';
 import 'package:money_manage/login/login.dart';
+import 'package:money_manage/login/splashScreen.dart';
 import 'package:money_manage/settings/provid.dart';
 import 'package:money_manage/home.dart';
 import 'package:sizer/sizer.dart';
@@ -66,7 +67,7 @@ class MyApp extends StatelessWidget {
                 ],
                 supportedLocales: L10n.all,
                 // home: HomePage(),
-                home: Login(),
+                home: SplashScreen(),
               );
             },
           );

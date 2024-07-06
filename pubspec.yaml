@@ -43,6 +43,7 @@ dependencies:
   rive :
   font_awesome_flutter : ^10.7.0
   intl: any
+  animator:
 
 dev_dependencies:
   flutter_test:
