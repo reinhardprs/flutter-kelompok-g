@@ -1,16 +1,14 @@
-# money_manage
+# Cashh
 
-A new Flutter project.
+Project App Front End Flutter
+
+Mata Kuliah : Mobile Front-End Development
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Project ini merupakan aplikasi pengelolaan uang untuk mengatur keuangan pribadi.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Project ini dikerjakan oleh :
+- Jwike Adelia br. Sidabariba (221112361)
+- Reinhard Prasetya (221112453)
+- Wahyu Nurahmadinuh (221111309)
